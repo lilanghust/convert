@@ -1,0 +1,698 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+Add	convert/k_way_merge.cpp	/^    void Add(tmp_in_edge value)$/;"	f	struct:merge_sink
+Add	convert/k_way_merge.cpp	/^    void Add(tmp_in_edge value)$/;"	f	struct:src_merge_sink
+BACKWARD_ENGINE	headers/fog_engine.hpp	/^    BACKWARD_ENGINE$/;"	e	enum:global_target
+BACKWARD_TRAVERSAL	headers/types.hpp	/^    BACKWARD_TRAVERSAL,$/;"	e	enum:algorithm_phase
+BINARY_DIR	Makefile	/^BINARY_DIR = bin$/;"	m
+BITS_MASK	headers/bitmap.hpp	24;"	d
+BITS_SHIFT	headers/bitmap.hpp	23;"	d
+BUCKETS	convert/radix_sort.cpp	27;"	d	file:
+CONTEXT_GATHER	headers/cpu_thread.hpp	/^    CONTEXT_GATHER,$/;"	e	enum:gather_signal
+CONTEXT_PHASE	application/bfs.hpp	/^        static int CONTEXT_PHASE;$/;"	m	class:bfs_program
+CONTEXT_PHASE	application/bfs.hpp	/^int bfs_program<T>::CONTEXT_PHASE = 0;$/;"	m	class:bfs_program
+CONTEXT_PHASE	application/cc.hpp	/^        static int CONTEXT_PHASE;$/;"	m	class:cc_program
+CONTEXT_PHASE	application/cc.hpp	/^int cc_program<T>::CONTEXT_PHASE = 0;$/;"	m	class:cc_program
+CONTEXT_PHASE	application/pagerank.hpp	/^        static int CONTEXT_PHASE;$/;"	m	class:pagerank_program
+CONTEXT_PHASE	application/pagerank.hpp	/^int pagerank_program<T>::CONTEXT_PHASE = 0;$/;"	m	class:pagerank_program
+CONTEXT_PHASE	application/scc.hpp	/^        static int CONTEXT_PHASE;$/;"	m	class:scc_program
+CONTEXT_PHASE	application/scc.hpp	/^int scc_program<T>::CONTEXT_PHASE = 0;$/;"	m	class:scc_program
+CONTEXT_PHASE	application/spmv.hpp	/^        static int CONTEXT_PHASE;$/;"	m	class:spmv_program
+CONTEXT_PHASE	application/spmv.hpp	/^int spmv_program<T>::CONTEXT_PHASE = 0;$/;"	m	class:spmv_program
+CONTEXT_PHASE	application/sssp.hpp	/^        static int CONTEXT_PHASE;$/;"	m	class:sssp_program
+CONTEXT_PHASE	application/sssp.hpp	/^int sssp_program<T>::CONTEXT_PHASE = 0;$/;"	m	class:sssp_program
+CONTEXT_SCATTER	headers/cpu_thread.hpp	/^    CONTEXT_SCATTER,$/;"	e	enum:scatter_signal
+CONVERT_OBJS	Makefile	/^CONVERT_OBJS= $(addprefix $(OBJECT_DIR)\/, $(CONVERT_SRC))$/;"	m
+CONVERT_SRC	Makefile	/^CONVERT_SRC = convert.o process_edgelist.o process_adjlist.o edgelist_map.o radix_sort.o process_in_edge.o k_way_merge.o$/;"	m
+CONVERT_TARGET	Makefile	/^CONVERT_TARGET=$(BINARY_DIR)\/convert$/;"	m
+CUSTOM_EOF	headers/convert.h	12;"	d
+CXX	Makefile	/^CXX?= g++$/;"	m
+CXXFLAGS	Makefile	/^CXXFLAGS?= -O3 -DDEBUG -Wall -Wno-unused-function -I.\/$(HEADERS_PATH)$/;"	m
+DAMPING_FACTOR	application/pagerank.hpp	22;"	d
+DAMPING_FACTOR	application/spmv.hpp	22;"	d
+DISK_THREAD_ID_BEGIN_WITH	headers/config.hpp	54;"	d
+EDGE_BUFFER_LEN	headers/convert.h	14;"	d
+ENGINE_CONTINUE	headers/types.hpp	/^    ENGINE_CONTINUE$/;"	e	enum:engine_control
+ENGINE_STOP	headers/types.hpp	/^    ENGINE_STOP = 0,$/;"	e	enum:engine_control
+EPSILON	headers/types.hpp	/^const float EPSILON = 1.00e-03;$/;"	v
+FILE_READ	headers/disk_thread.hpp	/^	FILE_READ = 0,$/;"	e	enum:__anon1
+FILE_WRITE	headers/disk_thread.hpp	/^	FILE_WRITE$/;"	e	enum:__anon1
+FINISHED_SCATTER	headers/cpu_thread.hpp	/^	FINISHED_SCATTER		\/\/I have no more sched tasks, and no updates in auxiliary update buffer.$/;"	e	enum:cpu_thread_status
+FLOAT_EQ	headers/types.hpp	19;"	d
+FORWARD_BACKWARD_TRAVERSAL	headers/types.hpp	/^    FORWARD_BACKWARD_TRAVERSAL$/;"	e	enum:algorithm_phase
+FORWARD_TRAVERSAL	headers/types.hpp	/^    FORWARD_TRAVERSAL = 0,$/;"	e	enum:algorithm_phase
+GLOBAL_ENGINE	headers/fog_engine.hpp	/^    GLOBAL_ENGINE = 0,$/;"	e	enum:global_target
+GLOBAL_GATHER	headers/cpu_thread.hpp	/^    GLOBAL_GATHER, TARGET_GATHER$/;"	e	enum:fog_engine_state
+GLOBAL_SCATTER	headers/cpu_thread.hpp	/^    GLOBAL_SCATTER, TARGET_SCATTER, $/;"	e	enum:fog_engine_state
+HEADERS_PATH	Makefile	/^HEADERS_PATH = headers$/;"	m
+INDEX_TO_VID	headers/bitmap.hpp	29;"	d
+INIT	headers/cpu_thread.hpp	/^    INIT = 0, $/;"	e	enum:fog_engine_state
+IN_EDGE	headers/index_vert_array.hpp	/^    OUT_EDGE = 1, IN_EDGE$/;"	e	enum:get_edge_state
+ITERATION_CONTINUE	headers/types.hpp	/^    ITERATION_CONTINUE$/;"	e	enum:iteration_control
+ITERATION_STOP	headers/types.hpp	/^    ITERATION_STOP = 0,$/;"	e	enum:iteration_control
+LINE_FORMAT	convert/edgelist_map.cpp	25;"	d	file:
+LINE_FORMAT	convert/process_edgelist.cpp	25;"	d	file:
+LINE_FORMAT_VERTEX	convert/edgelist_map.cpp	26;"	d	file:
+MAX_LINE_LEN	headers/convert.h	13;"	d
+MAX_RADIX	convert/radix_sort.cpp	26;"	d	file:
+MIN_VERT_TO_PROCESS	headers/config.hpp	55;"	d
+MMAP_THRESHOLD	headers/fog_engine.hpp	33;"	d
+NORMAL_GATHER	headers/cpu_thread.hpp	/^    NORMAL_GATHER = 0,$/;"	e	enum:gather_signal
+NORMAL_SCATTER	headers/cpu_thread.hpp	/^    NORMAL_SCATTER = 0,$/;"	e	enum:scatter_signal
+NO_MORE_SCHED	headers/cpu_thread.hpp	/^	NO_MORE_SCHED,			\/\/I have no more sched tasks, but have updates in the auxiliary update buffer$/;"	e	enum:cpu_thread_status
+OBJECT_DIR	Makefile	/^OBJECT_DIR = obj$/;"	m
+OUT_EDGE	headers/index_vert_array.hpp	/^    OUT_EDGE = 1, IN_EDGE$/;"	e	enum:get_edge_state
+PHASE	headers/cpu_thread.hpp	/^    u32_t PHASE;$/;"	m	struct:scatter_param
+PRINT_DEBUG	headers/print_debug.hpp	108;"	d
+PRINT_DEBUG	headers/print_debug.hpp	44;"	d
+PRINT_DEBUG	headers/print_debug.hpp	54;"	d
+PRINT_DEBUG	headers/print_debug.hpp	73;"	d
+PRINT_DEBUG_CV_LOG	headers/print_debug.hpp	103;"	d
+PRINT_DEBUG_LOG	headers/print_debug.hpp	95;"	d
+PRINT_DEBUG_TEST_LOG	headers/print_debug.hpp	99;"	d
+PRINT_ERROR	headers/print_debug.hpp	46;"	d
+PRINT_ERROR	headers/print_debug.hpp	57;"	d
+PRINT_ERROR	headers/print_debug.hpp	83;"	d
+PRINT_SHORT	headers/print_debug.hpp	45;"	d
+PRINT_SHORT	headers/print_debug.hpp	55;"	d
+PRINT_SHORT	headers/print_debug.hpp	77;"	d
+PRINT_WARNING	headers/print_debug.hpp	109;"	d
+PRINT_WARNING	headers/print_debug.hpp	50;"	d
+PRINT_WARNING	headers/print_debug.hpp	64;"	d
+PRINT_WARNING	headers/print_debug.hpp	90;"	d
+READ_FILE	convert/process_in_edge.cpp	/^    READ_FILE = 0,$/;"	e	enum:__anon2	file:
+ROUND_DOWN	headers/config.hpp	70;"	d
+ROUND_UP	headers/config.hpp	71;"	d
+SPECIAL_STEAL_SCATTER	headers/cpu_thread.hpp	/^    SPECIAL_STEAL_SCATTER$/;"	e	enum:scatter_signal
+START_VID	headers/config.hpp	64;"	d
+STEAL_GATHER	headers/cpu_thread.hpp	/^    STEAL_GATHER$/;"	e	enum:gather_signal
+STEAL_SCATTER	headers/cpu_thread.hpp	/^    STEAL_SCATTER,$/;"	e	enum:scatter_signal
+SYSLIBS	Makefile	/^SYSLIBS = -L\/usr\/local\/lib -L\/usr\/lib  -lboost_system -lboost_program_options -lboost_thread -lz -lrt -lm -lpthread$/;"	m
+TARGET_ENGINE	headers/fog_engine.hpp	/^    TARGET_ENGINE,$/;"	e	enum:global_target
+TARGET_GATHER	headers/cpu_thread.hpp	/^    GLOBAL_GATHER, TARGET_GATHER$/;"	e	enum:fog_engine_state
+TARGET_SCATTER	headers/cpu_thread.hpp	/^    GLOBAL_SCATTER, TARGET_SCATTER, $/;"	e	enum:fog_engine_state
+TERM_VID	headers/config.hpp	67;"	d
+TEST_OBJS	Makefile	/^TEST_OBJS= $(addprefix $(OBJECT_DIR)\/, $(TEST_SRC))$/;"	m
+TEST_SRC	Makefile	/^TEST_SRC = test.o$/;"	m
+TEST_TARGET	Makefile	/^TEST_TARGET=$(BINARY_DIR)\/test$/;"	m
+THRESHOLD	headers/fog_engine.hpp	32;"	d
+THRESHOLD_GRAPH_SIZE	headers/index_vert_array.hpp	20;"	d
+UPDATE_BUF_FULL	headers/cpu_thread.hpp	/^	UPDATE_BUF_FULL = 100,	\/\/Cannot scatter more updates, since my update buffer is full$/;"	e	enum:cpu_thread_status
+VERT_BUFFER_LEN	headers/convert.h	15;"	d
+VID_TO_BITMAP_INDEX	headers/bitmap.hpp	26;"	d
+VID_TO_PARTITION	headers/config.hpp	60;"	d
+VID_TO_SEGMENT	headers/config.hpp	57;"	d
+WRITE_FILE	convert/process_in_edge.cpp	/^    WRITE_FILE$/;"	e	enum:__anon2	file:
+_CONFIG_PARSE_	headers/config_parse.h	10;"	d
+__BFS_H__	application/bfs.hpp	16;"	d
+__BITMAP_H__	headers/bitmap.hpp	10;"	d
+__CC_H__	application/cc.hpp	16;"	d
+__CONFIG_H__	headers/config.hpp	13;"	d
+__CONVERT_H__	headers/convert.h	10;"	d
+__CPU_THREAD_HPP__	headers/cpu_thread.hpp	10;"	d
+__DISK_THREAD_HPP__	headers/disk_thread.hpp	10;"	d
+__FOG_ENGINE_H__	headers/fog_engine.hpp	10;"	d
+__OPTIONS_UTILS_CONVERT_H__	headers/options_utils_convert.h	13;"	d
+__OPTIONS_UTILS_H__	headers/options_utils.h	13;"	d
+__PAGERANK_HPP__	application/pagerank.hpp	16;"	d
+__PRINT_DEBUG__HPP__	headers/print_debug.hpp	14;"	d
+__PRINT__DEBUG__	headers/print_debug.hpp	28;"	d
+__SCC_H__	application/scc.hpp	16;"	d
+__SPMV_HPP__	application/spmv.hpp	16;"	d
+__SSSP_H__	application/sssp.hpp	16;"	d
+__TYPES_H__	headers/types.hpp	10;"	d
+__VERT_ARRAY_H__	headers/index_vert_array.hpp	10;"	d
+after_iteration	application/bfs.hpp	/^        static int after_iteration()$/;"	f	class:bfs_program
+after_iteration	application/cc.hpp	/^        static int after_iteration()$/;"	f	class:cc_program
+after_iteration	application/pagerank.hpp	/^        static int after_iteration()$/;"	f	class:pagerank_program
+after_iteration	application/scc.hpp	/^        static int after_iteration()$/;"	f	class:scc_program
+after_iteration	application/spmv.hpp	/^        static int after_iteration()$/;"	f	class:spmv_program
+after_iteration	application/sssp.hpp	/^        static int after_iteration()$/;"	f	class:sssp_program
+alg_per_bits_true_size	headers/types.hpp	/^    u32_t alg_per_bits_true_size;$/;"	m	struct:context_data
+alg_per_max_vert_id	headers/types.hpp	/^    u32_t alg_per_max_vert_id;$/;"	m	struct:context_data
+alg_per_min_vert_id	headers/types.hpp	/^    u32_t alg_per_min_vert_id;$/;"	m	struct:context_data
+algorithm_phase	headers/types.hpp	/^enum algorithm_phase$/;"	g
+attr_array_head	headers/cpu_thread.hpp	/^	void* attr_array_head;$/;"	m	struct:scatter_param
+attr_array_head	headers/cpu_thread.hpp	/^    void * attr_array_head;$/;"	m	struct:gather_param
+attr_array_header	headers/fog_engine.hpp	/^        VA *attr_array_header;$/;"	m	class:fog_engine
+attr_buf0	headers/config.hpp	/^		char* attr_buf0;$/;"	m	class:segment_config
+attr_buf1	headers/config.hpp	/^		char* attr_buf1;$/;"	m	class:segment_config
+attr_buf_head	headers/cpu_thread.hpp	/^	char* attr_buf_head;$/;"	m	struct:init_param
+attr_buf_len	headers/config.hpp	/^		u64_t attr_buf_len;$/;"	m	class:segment_config
+attr_fd	headers/disk_thread.hpp	/^	int attr_fd;$/;"	m	class:io_queue
+attr_fd	headers/fog_engine.hpp	/^        int attr_fd;$/;"	m	class:fog_engine
+attr_file_length	headers/fog_engine.hpp	/^        u64_t attr_file_length;$/;"	m	class:fog_engine
+attr_file_name	headers/config.hpp	/^		std::string attr_file_name;$/;"	m	struct:general_config
+barrier	headers/cpu_thread.hpp	/^    barrier(unsigned long expected_in)$/;"	f	class:barrier
+barrier	headers/cpu_thread.hpp	/^class barrier {$/;"	c
+before_iteration	application/bfs.hpp	/^        static void before_iteration()$/;"	f	class:bfs_program
+before_iteration	application/cc.hpp	/^        static void before_iteration()$/;"	f	class:cc_program
+before_iteration	application/pagerank.hpp	/^        static void before_iteration()$/;"	f	class:pagerank_program
+before_iteration	application/scc.hpp	/^        static void before_iteration()$/;"	f	class:scc_program
+before_iteration	application/spmv.hpp	/^        static void before_iteration()$/;"	f	class:spmv_program
+before_iteration	application/sssp.hpp	/^        static void before_iteration()$/;"	f	class:sssp_program
+bfs_level	application/bfs.hpp	/^	u32_t bfs_level;$/;"	m	struct:bfs_vert_attr
+bfs_program	application/bfs.hpp	/^class bfs_program{$/;"	c
+bfs_root	application/bfs.hpp	/^		static u32_t bfs_root;$/;"	m	class:bfs_program
+bfs_root	application/bfs.hpp	/^unsigned int bfs_program<T>::bfs_root = 0;$/;"	m	class:bfs_program
+bfs_vert_attr	application/bfs.hpp	/^struct bfs_vert_attr{$/;"	s
+bit_num_bytes	headers/bitmap.hpp	22;"	d
+bitmap	headers/bitmap.hpp	/^class bitmap$/;"	c
+bitmap_buf_head	headers/bitmap.hpp	/^        char *bitmap_buf_head;$/;"	m	class:bitmap
+bitmap_t	headers/bitmap.hpp	/^typedef unsigned char * bitmap_t;$/;"	t
+bits_array	headers/bitmap.hpp	/^        char * bits_array;$/;"	m	class:bitmap
+boost_disk_threads	headers/disk_thread.hpp	/^	boost::thread ** boost_disk_threads;$/;"	m	class:io_queue
+boost_pcpu_threads	headers/fog_engine.hpp	/^        boost::thread ** boost_pcpu_threads;$/;"	m	class:fog_engine
+buf0_holder	headers/config.hpp	/^        int buf0_holder;$/;"	m	class:segment_config
+buf1	convert/process_in_edge.cpp	/^struct tmp_in_edge * buf1, *buf2;$/;"	v	typeref:struct:tmp_in_edge
+buf1_holder	headers/config.hpp	/^        int buf1_holder;$/;"	m	class:segment_config
+buf2	convert/process_in_edge.cpp	/^struct tmp_in_edge * buf1, *buf2;$/;"	v	typeref:struct:
+buf_edges	convert/k_way_merge.cpp	/^    u64_t buf_edges;$/;"	m	struct:merge_sink	file:
+buf_edges	convert/k_way_merge.cpp	/^    u64_t buf_edges;$/;"	m	struct:src_merge_sink	file:
+buf_edges	convert/k_way_merge.cpp	/^    unsigned long long buf_edges;$/;"	m	struct:merge_source	file:
+buf_for_sort	convert/process_in_edge.cpp	/^char * buf_for_sort;$/;"	v
+buf_for_write	headers/fog_engine.hpp	/^        char * buf_for_write;$/;"	m	class:fog_engine
+buf_head	headers/config.hpp	/^	char* buf_head;$/;"	m	struct:per_cpu_data
+buf_idx	convert/k_way_merge.cpp	/^    unsigned long long buf_idx;$/;"	m	struct:merge_source	file:
+buf_index	convert/k_way_merge.cpp	/^    u64_t buf_index;$/;"	m	struct:merge_sink	file:
+buf_index	convert/k_way_merge.cpp	/^    u64_t buf_index;$/;"	m	struct:src_merge_sink	file:
+buf_len_bytes	headers/bitmap.hpp	/^        u32_t buf_len_bytes;$/;"	m	class:bitmap
+buf_num_bits	headers/bitmap.hpp	/^        u32_t buf_num_bits;$/;"	m	class:bitmap
+buf_size	headers/config.hpp	/^	u64_t buf_size;$/;"	m	struct:per_cpu_data
+buffer	convert/k_way_merge.cpp	/^    tmp_in_edge * buffer;$/;"	m	struct:merge_source	file:
+buffer	headers/disk_thread.hpp	/^	char* buffer;$/;"	m	struct:io_work
+buffer_offset	convert/k_way_merge.cpp	/^    u32_t buffer_offset;$/;"	m	struct:merge_sink	file:
+buffer_offset	convert/k_way_merge.cpp	/^    u32_t buffer_offset;$/;"	m	struct:src_merge_sink	file:
+cc_program	application/cc.hpp	/^class cc_program{$/;"	c
+cc_vert_attr	application/cc.hpp	/^struct cc_vert_attr{$/;"	s
+component_root	application/cc.hpp	/^	u32_t component_root;$/;"	m	struct:cc_vert_attr
+component_root	application/scc.hpp	/^	u32_t component_root;$/;"	m	struct:scc_vert_attr
+component_root	application/scc.hpp	/^    u32_t component_root;$/;"	m	struct:scc_update
+context_data	headers/types.hpp	/^struct context_data{$/;"	s
+context_edge_id	headers/types.hpp	/^    u32_t context_edge_id;$/;"	m	struct:sched_list_context_data
+context_steal_edge_id	headers/types.hpp	/^    u32_t context_steal_edge_id;$/;"	m	struct:sched_list_context_data
+context_steal_max_vert	headers/types.hpp	/^    u32_t context_steal_max_vert;$/;"	m	struct:sched_list_context_data
+context_steal_min_vert	headers/types.hpp	/^    u32_t context_steal_min_vert;$/;"	m	struct:sched_list_context_data
+context_steal_num_vert	headers/types.hpp	/^    u32_t context_steal_num_vert;$/;"	m	struct:sched_list_context_data
+context_vert_id	headers/types.hpp	/^    u32_t context_vert_id;$/;"	m	struct:sched_list_context_data
+convert	headers/convert.h	/^namespace convert$/;"	n
+count	headers/cpu_thread.hpp	/^    volatile unsigned long count[2];$/;"	m	class:barrier
+cpu_thread	headers/cpu_thread.hpp	/^class cpu_thread {$/;"	c
+cpu_thread_status	headers/cpu_thread.hpp	/^enum cpu_thread_status{$/;"	g
+cpu_work	headers/cpu_thread.hpp	/^struct cpu_work{$/;"	s
+curr_size	convert/k_way_merge.cpp	/^    int curr_size;$/;"	m	class:minheap	file:
+current	headers/types.hpp	/^    sched_task *head, *tail, *current;$/;"	m	struct:sched_list_manager
+current_attr_segment	headers/fog_engine.hpp	/^        static u32_t current_attr_segment;$/;"	m	class:fog_engine
+current_attr_segment	headers/fog_engine.hpp	/^u32_t fog_engine<A, VA, U, T>::current_attr_segment;$/;"	m	class:fog_engine
+current_buf_size	convert/process_in_edge.cpp	/^u64_t current_buf_size;$/;"	v
+current_file_id	convert/process_in_edge.cpp	/^u32_t current_file_id;$/;"	v
+dec_size	convert/k_way_merge.cpp	/^    void dec_size()$/;"	f	class:minheap
+del_num_edges	convert/k_way_merge.cpp	/^    u64_t del_num_edges;$/;"	m	struct:src_merge_sink	file:
+desc	headers/options_utils.h	/^boost::program_options::options_description desc;$/;"	v
+desc	headers/options_utils_convert.h	/^boost::program_options::options_description desc;$/;"	v
+desc_file	convert/convert.cpp	/^std::fstream desc_file;$/;"	v
+dest_vert	headers/convert.h	/^        unsigned int dest_vert;$/;"	m	struct:convert::edge
+dest_vert	headers/convert.h	/^        unsigned int dest_vert;$/;"	m	struct:convert::old_edge
+dest_vert	headers/convert.h	/^        unsigned int dest_vert;$/;"	m	struct:convert::out_edge_with_weight
+dest_vert	headers/convert.h	/^        unsigned int dest_vert;$/;"	m	struct:convert::out_edge_without_weight
+dest_vert	headers/convert.h	/^        unsigned int dest_vert;$/;"	m	struct:convert::tmp_in_edge
+dest_vert	headers/convert.h	/^        unsigned int dest_vert;$/;"	m	struct:convert::type2_edge
+dest_vert	headers/types.hpp	/^	u32_t dest_vert;$/;"	m	struct:update
+dest_vert	headers/types.hpp	/^    u32_t dest_vert;                                         $/;"	m	struct:edge
+dest_vert	headers/types.hpp	/^    u32_t dest_vert;$/;"	m	struct:type1_edge
+dest_vert	headers/types.hpp	/^    u32_t dest_vert;$/;"	m	struct:type2_edge
+disk_thread	headers/disk_thread.hpp	/^class disk_thread{$/;"	c
+disk_thread_id	headers/disk_thread.hpp	/^    const unsigned long disk_thread_id;$/;"	m	class:disk_thread
+disk_threads	headers/disk_thread.hpp	/^	disk_thread ** disk_threads;$/;"	m	class:io_queue
+do_io_work	convert/process_in_edge.cpp	/^void do_io_work(const char *file_name_in, u32_t operation, char* buf, u64_t offset_in, u64_t size_in)$/;"	f
+do_merge	convert/k_way_merge.cpp	/^void do_merge()$/;"	f
+do_scc_phase	application/scc.hpp	/^        static int do_scc_phase;$/;"	m	class:scc_program
+do_scc_phase	application/scc.hpp	/^int scc_program<T>::do_scc_phase = 0;$/;"	m	class:scc_program
+do_src_merge	convert/k_way_merge.cpp	/^u64_t do_src_merge(char *tmp_out_dir, char *origin_edge_file)$/;"	f
+dst_vert	convert/process_edgelist.cpp	/^unsigned int src_vert, dst_vert;$/;"	v
+each_buf_len	convert/process_in_edge.cpp	/^u64_t each_buf_len;$/;"	v
+each_buf_size	convert/process_in_edge.cpp	/^u64_t each_buf_size; \/\/How many edges can be stored in this buf$/;"	v
+edge	headers/convert.h	/^    struct edge$/;"	s	namespace:convert
+edge	headers/types.hpp	/^struct edge{$/;"	s
+edge_array_header	headers/index_vert_array.hpp	/^		T * edge_array_header;$/;"	m	class:index_vert_array
+edge_buf_for_sort	convert/process_in_edge.cpp	/^struct tmp_in_edge * edge_buf_for_sort;$/;"	v	typeref:struct:tmp_in_edge
+edge_buffer_offset	convert/k_way_merge.cpp	/^u32_t edge_buffer_offset = 0;$/;"	v
+edge_file	convert/process_edgelist.cpp	/^FILE * edge_file;$/;"	v
+edge_file_fd	headers/index_vert_array.hpp	/^		int edge_file_fd;$/;"	m	class:index_vert_array
+edge_file_length	headers/index_vert_array.hpp	/^		unsigned long long edge_file_length;$/;"	m	class:index_vert_array
+edge_file_name	headers/config.hpp	/^		std::string edge_file_name;$/;"	m	struct:general_config
+edge_suffix	convert/k_way_merge.cpp	/^u32_t edge_suffix = 0;$/;"	v
+edge_weight	headers/convert.h	/^        float edge_weight;$/;"	m	struct:convert::edge
+edge_weight	headers/convert.h	/^        float edge_weight;$/;"	m	struct:convert::old_edge
+edge_weight	headers/convert.h	/^        float edge_weight;$/;"	m	struct:convert::out_edge_with_weight
+edge_weight	headers/types.hpp	/^    float edge_weight;$/;"	m	struct:edge
+edge_weight	headers/types.hpp	/^    float edge_weight;$/;"	m	struct:type1_edge
+edgelist_map	convert/edgelist_map.cpp	/^void edgelist_map( const char* input_file_name,$/;"	f
+end_time	headers/fog_engine.hpp	/^        time_t end_time;$/;"	m	class:fog_engine
+engine_control	headers/types.hpp	/^enum engine_control$/;"	g
+engine_state	headers/cpu_thread.hpp	/^	u32_t engine_state;$/;"	m	struct:cpu_work
+expected	headers/cpu_thread.hpp	/^    unsigned long expected;$/;"	m	class:barrier
+f	convert/k_way_merge.cpp	/^    int f;$/;"	m	struct:merge_source	file:
+fd	headers/disk_thread.hpp	/^	int fd;$/;"	m	struct:io_work
+file	convert/k_way_merge.cpp	/^    FILE *file;$/;"	m	struct:merge_sink	file:
+file_edges	convert/k_way_merge.cpp	/^    unsigned long long file_edges;$/;"	m	struct:merge_source	file:
+file_id	convert/process_edgelist.cpp	/^int file_id;$/;"	v
+file_len	convert/process_in_edge.cpp	/^u64_t *file_len;$/;"	v
+file_name	convert/k_way_merge.cpp	/^    std::string file_name;$/;"	m	struct:merge_source	file:
+finalize	application/bfs.hpp	/^        static int finalize(bfs_vert_attr * va)$/;"	f	class:bfs_program
+finalize	application/cc.hpp	/^        static int finalize(cc_vert_attr * va)$/;"	f	class:cc_program
+finalize	application/pagerank.hpp	/^        static int finalize(pagerank_vert_attr * va)$/;"	f	class:pagerank_program
+finalize	application/scc.hpp	/^        static int finalize(scc_vert_attr * va)$/;"	f	class:scc_program
+finalize	application/spmv.hpp	/^        static int finalize(spmv_vert_attr * va)$/;"	f	class:spmv_program
+finalize	application/sssp.hpp	/^        static int finalize(sssp_vert_attr * va)$/;"	f	class:sssp_program
+finish	convert/k_way_merge.cpp	/^    void finish()$/;"	f	struct:merge_sink
+finish	convert/k_way_merge.cpp	/^    void finish()$/;"	f	struct:merge_source
+finish	convert/k_way_merge.cpp	/^    void finish()$/;"	f	struct:src_merge_sink
+finished	headers/disk_thread.hpp	/^	volatile int finished;	\/\/is the work finished? 0 means not finished, 1 means finished$/;"	m	struct:io_work
+flush_buffer_to_file	convert/process_edgelist.cpp	/^int flush_buffer_to_file( int fd, char* buffer, unsigned int size )$/;"	f
+fog_engine	headers/fog_engine.hpp	/^class fog_engine{$/;"	c
+fog_engine_state	headers/cpu_thread.hpp	/^enum fog_engine_state{$/;"	g
+fog_io_queue	headers/fog_engine.hpp	/^        static io_queue * fog_io_queue;$/;"	m	class:fog_engine
+fog_io_queue	headers/fog_engine.hpp	/^io_queue * fog_engine<A, VA, U, T>::fog_io_queue;$/;"	m	class:fog_engine
+forward_backward_phase	application/bfs.hpp	/^        static int forward_backward_phase;$/;"	m	class:bfs_program
+forward_backward_phase	application/bfs.hpp	/^int bfs_program<T>::forward_backward_phase = FORWARD_TRAVERSAL;$/;"	m	class:bfs_program
+forward_backward_phase	application/cc.hpp	/^        static int forward_backward_phase;$/;"	m	class:cc_program
+forward_backward_phase	application/cc.hpp	/^int cc_program<T>::forward_backward_phase = FORWARD_TRAVERSAL;$/;"	m	class:cc_program
+forward_backward_phase	application/pagerank.hpp	/^        static int forward_backward_phase;$/;"	m	class:pagerank_program
+forward_backward_phase	application/pagerank.hpp	/^int pagerank_program<T>::forward_backward_phase = FORWARD_TRAVERSAL;$/;"	m	class:pagerank_program
+forward_backward_phase	application/scc.hpp	/^        static int forward_backward_phase;$/;"	m	class:scc_program
+forward_backward_phase	application/scc.hpp	/^int scc_program<T>::forward_backward_phase = FORWARD_TRAVERSAL;$/;"	m	class:scc_program
+forward_backward_phase	application/spmv.hpp	/^        static int forward_backward_phase;$/;"	m	class:spmv_program
+forward_backward_phase	application/spmv.hpp	/^int spmv_program<T>::forward_backward_phase = FORWARD_TRAVERSAL;$/;"	m	class:spmv_program
+forward_backward_phase	application/sssp.hpp	/^        static int forward_backward_phase;$/;"	m	class:sssp_program
+forward_backward_phase	application/sssp.hpp	/^int sssp_program<T>::forward_backward_phase = FORWARD_TRAVERSAL;$/;"	m	class:sssp_program
+found_component	application/scc.hpp	/^    bool found_component;$/;"	m	struct:scc_vert_attr
+gather_end_time	headers/fog_engine.hpp	/^        time_t gather_end_time;$/;"	m	class:fog_engine
+gather_fog_engine_state	headers/fog_engine.hpp	/^        static u32_t gather_fog_engine_state;$/;"	m	class:fog_engine
+gather_fog_engine_state	headers/fog_engine.hpp	/^u32_t fog_engine<A, VA, U, T>::gather_fog_engine_state;$/;"	m	class:fog_engine
+gather_one_update	application/bfs.hpp	/^		static void gather_one_update( u32_t vid, bfs_vert_attr* this_vert, $/;"	f	class:bfs_program
+gather_one_update	application/cc.hpp	/^		static void gather_one_update( u32_t vid, cc_vert_attr* this_vert, $/;"	f	class:cc_program
+gather_one_update	application/pagerank.hpp	/^		static void gather_one_update( u32_t vid, pagerank_vert_attr * dest_vert_attr, update<pagerank_vert_attr> * u )$/;"	f	class:pagerank_program
+gather_one_update	application/scc.hpp	/^		static void gather_one_update( u32_t vid, scc_vert_attr* this_vert, $/;"	f	class:scc_program
+gather_one_update	application/spmv.hpp	/^		static void gather_one_update( u32_t vid, spmv_vert_attr * dest_vert_attr, update<spmv_update> * u )$/;"	f	class:spmv_program
+gather_one_update	application/sssp.hpp	/^		static void gather_one_update( u32_t vid, sssp_vert_attr* this_vert, $/;"	f	class:sssp_program
+gather_param	headers/cpu_thread.hpp	/^struct gather_param{$/;"	s
+gather_signal	headers/cpu_thread.hpp	/^enum gather_signal$/;"	g
+gather_start_time	headers/fog_engine.hpp	/^        time_t gather_start_time;$/;"	m	class:fog_engine
+general_config	headers/config.hpp	/^struct general_config{$/;"	s
+get_adjline	convert/process_adjlist.cpp	/^char *get_adjline()$/;"	f
+get_dest_value	headers/types.hpp	/^    u32_t get_dest_value()$/;"	f	struct:type1_edge
+get_dest_value	headers/types.hpp	/^    u32_t get_dest_value()$/;"	f	struct:type2_edge
+get_dest_value	headers/types.hpp	/^    u32_t get_dest_value(){return (u32_t)-1;}$/;"	f	struct:in_edge
+get_edge_state	headers/index_vert_array.hpp	/^enum get_edge_state$/;"	g
+get_edge_value	headers/types.hpp	/^    float get_edge_value()$/;"	f	struct:type1_edge
+get_edge_value	headers/types.hpp	/^    float get_edge_value()$/;"	f	struct:type2_edge
+get_edge_value	headers/types.hpp	/^    float get_edge_value(){return (float)-1;}$/;"	f	struct:in_edge
+get_min	convert/k_way_merge.cpp	/^    T get_min()$/;"	f	class:minheap
+get_next	convert/k_way_merge.cpp	/^    tmp_in_edge get_next()$/;"	f	struct:merge_source
+get_src_value	headers/types.hpp	/^    u32_t get_src_value(){return (u32_t)-1;}$/;"	f	struct:type1_edge
+get_src_value	headers/types.hpp	/^    u32_t get_src_value(){return (u32_t)-1;}$/;"	f	struct:type2_edge
+get_src_value	headers/types.hpp	/^    u32_t get_src_value(){return src_vert;}$/;"	f	struct:in_edge
+global_or_target	headers/fog_engine.hpp	/^        u32_t global_or_target;$/;"	m	class:fog_engine
+global_sched_manager	headers/config.hpp	/^	sched_list_context_data * global_sched_manager;$/;"	m	struct:per_cpu_data
+global_target	headers/fog_engine.hpp	/^enum global_target$/;"	g
+graph_path	headers/config.hpp	/^		std::string graph_path;$/;"	m	struct:general_config
+has_more	convert/k_way_merge.cpp	/^    bool has_more()$/;"	f	struct:merge_source
+head	headers/types.hpp	/^    sched_task *head, *tail, *current;$/;"	m	struct:sched_list_manager
+hit_counts	headers/fog_engine.hpp	/^        u32_t hit_counts;$/;"	m	class:fog_engine
+hook_for_merge	convert/process_in_edge.cpp	/^void hook_for_merge()$/;"	f
+idx	convert/k_way_merge.cpp	/^    unsigned long long idx;$/;"	m	struct:merge_source	file:
+in	convert/process_edgelist.cpp	/^FILE * in;$/;"	v
+in_edge	headers/convert.h	/^    struct in_edge$/;"	s	namespace:convert
+in_edge	headers/types.hpp	/^struct in_edge$/;"	s
+in_edge_array_header	headers/index_vert_array.hpp	/^        in_edge * in_edge_array_header;$/;"	m	class:index_vert_array
+in_edge_buffer	convert/process_in_edge.cpp	/^struct in_edge in_edge_buffer[EDGE_BUFFER_LEN];$/;"	v	typeref:struct:in_edge
+in_edge_fd	convert/process_in_edge.cpp	/^FILE *in_edge_fd;$/;"	v
+in_edge_file_fd	headers/index_vert_array.hpp	/^        int in_edge_file_fd;$/;"	m	class:index_vert_array
+in_edge_file_length	headers/index_vert_array.hpp	/^        unsigned long long in_edge_file_length;$/;"	m	class:index_vert_array
+in_edge_file_name	headers/config.hpp	/^		std::string in_edge_file_name;$/;"	m	struct:general_config
+in_name_file	convert/process_in_edge.cpp	/^const char * in_name_file;$/;"	v
+in_vert	headers/convert.h	/^        unsigned int in_vert;$/;"	m	struct:convert::in_edge
+in_vert_array_header	headers/index_vert_array.hpp	/^        vert_index * in_vert_array_header;$/;"	m	class:index_vert_array
+in_vert_buffer	convert/process_in_edge.cpp	/^struct vert_index in_vert_buffer[VERT_BUFFER_LEN];$/;"	v	typeref:struct:vert_index
+in_vert_file_name	headers/config.hpp	/^		std::string in_vert_file_name;$/;"	m	struct:general_config
+in_vert_index_file_fd	headers/index_vert_array.hpp	/^        int in_vert_index_file_fd;$/;"	m	class:index_vert_array
+in_vert_index_file_length	headers/index_vert_array.hpp	/^        unsigned long long in_vert_index_file_length;$/;"	m	class:index_vert_array
+in_vertex	convert/edgelist_map.cpp	/^FILE * in_vertex;$/;"	v
+inc_size	convert/k_way_merge.cpp	/^    void inc_size()$/;"	f	class:minheap
+index_vert_array	headers/index_vert_array.hpp	/^class index_vert_array{$/;"	c
+init	application/bfs.hpp	/^		static void init(u32_t vid, bfs_vert_attr* va, index_vert_array<T> * vert_index){$/;"	f	class:bfs_program
+init	application/cc.hpp	/^		static void init(u32_t vid, cc_vert_attr* va, index_vert_array<T> * vert_index)$/;"	f	class:cc_program
+init	application/pagerank.hpp	/^		static void init( u32_t vid, pagerank_vert_attr* this_vert, index_vert_array<T> * vert_index )$/;"	f	class:pagerank_program
+init	application/scc.hpp	/^        static void init( u32_t vid, scc_vert_attr* va, index_vert_array<T> * vert_index)$/;"	f	class:scc_program
+init	application/spmv.hpp	/^		static void init( u32_t vid, spmv_vert_attr* this_vert, index_vert_array<T> * vert_index )$/;"	f	class:spmv_program
+init	application/sssp.hpp	/^		static void init(u32_t vid, sssp_vert_attr* va, index_vert_array<T> * vert_index){$/;"	f	class:sssp_program
+init_fog_engine_state	headers/fog_engine.hpp	/^        static u32_t init_fog_engine_state;$/;"	m	class:fog_engine
+init_fog_engine_state	headers/fog_engine.hpp	/^u32_t fog_engine<A, VA, U, T>::init_fog_engine_state;$/;"	m	class:fog_engine
+init_graph_desc	headers/config_parse.h	/^static void init_graph_desc(const std::string& graph_name)$/;"	f
+init_max_vertex_id	convert/convert.cpp	/^void init_max_vertex_id()$/;"	f
+init_param	headers/cpu_thread.hpp	/^struct init_param{$/;"	s
+init_sched	application/bfs.hpp	/^        static bool init_sched;$/;"	m	class:bfs_program
+init_sched	application/bfs.hpp	/^bool bfs_program<T>::init_sched = false;$/;"	m	class:bfs_program
+init_sched	application/cc.hpp	/^        static bool init_sched;$/;"	m	class:cc_program
+init_sched	application/cc.hpp	/^bool cc_program<T>::init_sched = true;$/;"	m	class:cc_program
+init_sched	application/pagerank.hpp	/^        static bool init_sched;$/;"	m	class:pagerank_program
+init_sched	application/pagerank.hpp	/^bool pagerank_program<T>::init_sched = false;$/;"	m	class:pagerank_program
+init_sched	application/scc.hpp	/^        static bool init_sched;$/;"	m	class:scc_program
+init_sched	application/scc.hpp	/^bool scc_program<T>::init_sched = true;$/;"	m	class:scc_program
+init_sched	application/spmv.hpp	/^        static bool init_sched;$/;"	m	class:spmv_program
+init_sched	application/spmv.hpp	/^bool spmv_program<T>::init_sched = false;$/;"	m	class:spmv_program
+init_sched	application/sssp.hpp	/^        static bool init_sched;$/;"	m	class:sssp_program
+init_sched	application/sssp.hpp	/^bool sssp_program<T>::init_sched = false;$/;"	m	class:sssp_program
+init_vertex_map	convert/edgelist_map.cpp	/^void init_vertex_map( unsigned int * vertex_map )$/;"	f
+insert	convert/k_way_merge.cpp	/^    void insert(T element)$/;"	f	class:minheap
+io_file_name	headers/disk_thread.hpp	/^    const char * io_file_name;$/;"	m	struct:io_work
+io_queue	headers/disk_thread.hpp	/^class io_queue{$/;"	c
+io_queue_mutex	headers/disk_thread.hpp	/^	boost::interprocess::interprocess_mutex io_queue_mutex;$/;"	m	class:io_queue
+io_queue_sem	headers/disk_thread.hpp	/^	boost::interprocess::interprocess_semaphore io_queue_sem;$/;"	m	class:io_queue
+io_work	headers/disk_thread.hpp	/^struct io_work{$/;"	s
+io_work_queue	headers/disk_thread.hpp	/^	std::vector<struct io_work*> io_work_queue;$/;"	m	class:io_queue
+isempty	convert/k_way_merge.cpp	/^    bool isempty()$/;"	f	class:minheap
+iteration_control	headers/types.hpp	/^enum iteration_control$/;"	g
+iteration_times	application/pagerank.hpp	/^		static u32_t iteration_times;	\/\/how many iterations will there be?$/;"	m	class:pagerank_program
+iteration_times	application/pagerank.hpp	/^u32_t pagerank_program<T>::iteration_times = 0;$/;"	m	class:pagerank_program
+kway_merge	convert/k_way_merge.cpp	/^    kway_merge(std::vector<merge_source*> sources, merge_sink* sink) : sources(sources),sink(sink),m_heap(int(sources.size()))$/;"	f	class:kway_merge
+kway_merge	convert/k_way_merge.cpp	/^class kway_merge$/;"	c	file:
+left	convert/k_way_merge.cpp	/^    int left(int i)$/;"	f	class:minheap
+line_buffer	convert/process_edgelist.cpp	/^char line_buffer[MAX_LINE_LEN];$/;"	v
+line_no	convert/process_edgelist.cpp	/^unsigned long long line_no=0;$/;"	v
+line_num	convert/edgelist_map.cpp	/^unsigned long long line_num=0;$/;"	v
+load_next	convert/k_way_merge.cpp	/^    void load_next()$/;"	f	struct:merge_source
+log2up	convert/radix_sort.cpp	/^u64_t log2up(T i)$/;"	f
+loop_counter	application/bfs.hpp	/^        static int loop_counter;$/;"	m	class:bfs_program
+loop_counter	application/bfs.hpp	/^int bfs_program<T>::loop_counter = 0;$/;"	m	class:bfs_program
+loop_counter	application/cc.hpp	/^        static int loop_counter;$/;"	m	class:cc_program
+loop_counter	application/cc.hpp	/^int cc_program<T>::loop_counter = 0;$/;"	m	class:cc_program
+loop_counter	application/pagerank.hpp	/^        static int loop_counter;$/;"	m	class:pagerank_program
+loop_counter	application/pagerank.hpp	/^int pagerank_program<T>::loop_counter = 0;$/;"	m	class:pagerank_program
+loop_counter	application/scc.hpp	/^        static int loop_counter;$/;"	m	class:scc_program
+loop_counter	application/scc.hpp	/^int scc_program<T>::loop_counter = 0;$/;"	m	class:scc_program
+loop_counter	application/spmv.hpp	/^        static int loop_counter;$/;"	m	class:spmv_program
+loop_counter	application/spmv.hpp	/^int spmv_program<T>::loop_counter = 0;$/;"	m	class:spmv_program
+loop_counter	application/sssp.hpp	/^        static int loop_counter;$/;"	m	class:sssp_program
+loop_counter	application/sssp.hpp	/^int sssp_program<T>::loop_counter = 0;$/;"	m	class:sssp_program
+m_heap	convert/k_way_merge.cpp	/^    minheap<src_value_source> m_heap;$/;"	m	class:src_kway_merge	file:
+m_heap	convert/k_way_merge.cpp	/^    minheap<value_source> m_heap;$/;"	m	class:kway_merge	file:
+main	convert/convert.cpp	/^int main( int argc, const char**argv)$/;"	f
+map_anon_memory	convert/process_in_edge.cpp	/^void *map_anon_memory( u64_t size,$/;"	f
+max_out_edges	convert/convert.cpp	/^unsigned long max_out_edges = 0;$/;"	v
+max_out_edges	headers/config.hpp	/^		u32_t max_out_edges;$/;"	m	struct:general_config
+max_size	convert/k_way_merge.cpp	/^    int max_size;$/;"	m	class:minheap	file:
+max_stdev	headers/fog_engine.hpp	/^        double max_stdev;$/;"	m	class:fog_engine
+max_vert_id	headers/config.hpp	/^		u32_t max_vert_id;$/;"	m	struct:general_config
+max_vertex_id	convert/convert.cpp	/^unsigned int min_vertex_id=100000, max_vertex_id=0;$/;"	v
+mem_size	convert/convert.cpp	/^unsigned long long mem_size;$/;"	v
+memory_size	headers/config.hpp	/^		u64_t memory_size;$/;"	m	struct:general_config
+merge	convert/k_way_merge.cpp	/^    void merge()$/;"	f	class:kway_merge
+merge	convert/k_way_merge.cpp	/^    void merge()$/;"	f	class:src_kway_merge
+merge_num	convert/k_way_merge.cpp	/^    int merge_num;$/;"	m	class:kway_merge	file:
+merge_num	convert/k_way_merge.cpp	/^    int merge_num;$/;"	m	class:src_kway_merge	file:
+merge_sink	convert/k_way_merge.cpp	/^    merge_sink(std::string file_name)$/;"	f	struct:merge_sink
+merge_sink	convert/k_way_merge.cpp	/^struct merge_sink$/;"	s	file:
+merge_source	convert/k_way_merge.cpp	/^    merge_source(tmp_in_edge * buf, unsigned long long buffer_edges, std::string filename, unsigned long long file_size) $/;"	f	struct:merge_source
+merge_source	convert/k_way_merge.cpp	/^struct merge_source$/;"	s	file:
+min_stdev	headers/fog_engine.hpp	/^        double min_stdev;$/;"	m	class:fog_engine
+min_vert_id	headers/config.hpp	/^		u32_t min_vert_id;$/;"	m	struct:general_config
+min_vertex_id	convert/convert.cpp	/^unsigned int min_vertex_id=100000, max_vertex_id=0;$/;"	v
+minheap	convert/k_way_merge.cpp	/^    minheap(int max_size)$/;"	f	class:minheap
+minheap	convert/k_way_merge.cpp	/^class minheap$/;"	c	file:
+mmapped_edge_file	headers/index_vert_array.hpp	/^		std::string mmapped_edge_file;$/;"	m	class:index_vert_array
+mmapped_in_edge_file	headers/index_vert_array.hpp	/^        std::string mmapped_in_edge_file;$/;"	m	class:index_vert_array
+mmapped_in_vert_file	headers/index_vert_array.hpp	/^        std::string mmapped_in_vert_file;$/;"	m	class:index_vert_array
+mmapped_vert_file	headers/index_vert_array.hpp	/^		std::string mmapped_vert_file;$/;"	m	class:index_vert_array
+modify	convert/k_way_merge.cpp	/^    void modify(int i)$/;"	f	class:minheap
+next_p_bitmap_steal	headers/types.hpp	/^    bitmap * next_p_bitmap_steal;$/;"	m	struct:context_data
+next_steal_bits_true_size	headers/types.hpp	/^    u32_t next_steal_bits_true_size;$/;"	m	struct:context_data
+next_steal_max_vert_id	headers/types.hpp	/^    u32_t next_steal_max_vert_id;$/;"	m	struct:context_data
+next_steal_min_vert_id	headers/types.hpp	/^    u32_t next_steal_min_vert_id;$/;"	m	struct:context_data
+nodes	convert/k_way_merge.cpp	/^    T * nodes;$/;"	m	class:minheap	file:
+normal_sched_max_vert	headers/types.hpp	/^    u32_t normal_sched_max_vert;$/;"	m	struct:sched_list_context_data
+normal_sched_min_vert	headers/types.hpp	/^    u32_t normal_sched_min_vert;$/;"	m	struct:sched_list_context_data
+normal_sched_vert_to_scatter	headers/types.hpp	/^    u32_t normal_sched_vert_to_scatter;$/;"	m	struct:sched_list_context_data
+num_attr_buf	headers/config.hpp	/^		u32_t num_attr_buf;$/;"	m	class:segment_config
+num_edges	convert/convert.cpp	/^unsigned long long num_edges=0;$/;"	v
+num_edges	headers/config.hpp	/^		u64_t num_edges; $/;"	m	struct:general_config
+num_io_threads	headers/config.hpp	/^		u32_t num_io_threads;$/;"	m	struct:general_config
+num_of_vertices	headers/cpu_thread.hpp	/^	u32_t num_of_vertices;$/;"	m	struct:init_param
+num_parts	convert/process_in_edge.cpp	/^u32_t num_parts; \/\/init to 0, add by bufs$/;"	v
+num_processors	headers/bitmap.hpp	/^        u32_t processor_id, num_processors;$/;"	m	class:bitmap
+num_processors	headers/config.hpp	/^		u32_t num_processors;$/;"	m	struct:general_config
+num_segments	headers/config.hpp	/^		u32_t num_segments;		\/\/how many segments it will have?$/;"	m	class:segment_config
+num_tasks_to_sched	application/bfs.hpp	/^        static u32_t num_tasks_to_sched;$/;"	m	class:bfs_program
+num_tasks_to_sched	application/bfs.hpp	/^unsigned int bfs_program<T>::num_tasks_to_sched = 0;$/;"	m	class:bfs_program
+num_tasks_to_sched	application/cc.hpp	/^        static u32_t num_tasks_to_sched ;$/;"	m	class:cc_program
+num_tasks_to_sched	application/cc.hpp	/^unsigned int cc_program<T>::num_tasks_to_sched = 0;$/;"	m	class:cc_program
+num_tasks_to_sched	application/pagerank.hpp	/^        static u32_t num_tasks_to_sched;$/;"	m	class:pagerank_program
+num_tasks_to_sched	application/pagerank.hpp	/^u32_t pagerank_program<T>::num_tasks_to_sched = 0;$/;"	m	class:pagerank_program
+num_tasks_to_sched	application/scc.hpp	/^        static u32_t num_tasks_to_sched;$/;"	m	class:scc_program
+num_tasks_to_sched	application/scc.hpp	/^unsigned int scc_program<T>::num_tasks_to_sched = 0;$/;"	m	class:scc_program
+num_tasks_to_sched	application/spmv.hpp	/^        static u32_t num_tasks_to_sched;$/;"	m	class:spmv_program
+num_tasks_to_sched	application/spmv.hpp	/^u32_t spmv_program<T>::num_tasks_to_sched = 0;$/;"	m	class:spmv_program
+num_tasks_to_sched	application/sssp.hpp	/^        static u32_t num_tasks_to_sched;$/;"	m	class:sssp_program
+num_tasks_to_sched	application/sssp.hpp	/^unsigned int sssp_program<T>::num_tasks_to_sched = 0;$/;"	m	class:sssp_program
+num_tmp_files	convert/process_in_edge.cpp	/^u32_t num_tmp_files;$/;"	v
+num_vert_to_scatter	headers/types.hpp	/^    u32_t num_vert_to_scatter;$/;"	m	struct:sched_list_context_data
+offset	headers/convert.h	/^        unsigned long long offset;$/;"	m	struct:convert::old_vert_index
+offset	headers/convert.h	/^        unsigned long long offset;$/;"	m	struct:convert::vert_index
+offset	headers/disk_thread.hpp	/^	u64_t offset,size;$/;"	m	struct:io_work
+offset	headers/types.hpp	/^    u64_t  offset;                                    $/;"	m	struct:vert_index
+old_edge	headers/convert.h	/^    struct old_edge$/;"	s	namespace:convert
+old_vert_index	headers/convert.h	/^    struct old_vert_index$/;"	s	namespace:convert
+operation	headers/disk_thread.hpp	/^	u32_t operation; \/\/choose from enum$/;"	m	struct:io_work
+operator <	convert/k_way_merge.cpp	/^    bool operator< (src_value_source &obj2)$/;"	f	struct:src_value_source
+operator <	convert/k_way_merge.cpp	/^    bool operator< (value_source &obj2)$/;"	f	struct:value_source
+origin_edge_file	convert/process_in_edge.cpp	/^char * origin_edge_file;$/;"	v
+origin_value	application/spmv.hpp	/^	float origin_value;$/;"	m	struct:spmv_vert_attr
+out_desc_file_name	convert/convert.cpp	/^std::string out_desc_file_name; $/;"	v
+out_edge_with_weight	headers/convert.h	/^    struct out_edge_with_weight$/;"	s	namespace:convert
+out_edge_without_weight	headers/convert.h	/^    struct out_edge_without_weight$/;"	s	namespace:convert
+out_loop	application/scc.hpp	/^        static int out_loop;$/;"	m	class:scc_program
+out_loop	application/scc.hpp	/^int scc_program<T>::out_loop = 0;$/;"	m	class:scc_program
+out_txt	convert/process_edgelist.cpp	/^FILE * out_txt;$/;"	v
+p_bitmap	headers/types.hpp	/^    bitmap * p_bitmap;$/;"	m	struct:context_data
+p_bitmap_steal	headers/types.hpp	/^    bitmap * p_bitmap_steal;$/;"	m	struct:context_data
+p_context_data	headers/types.hpp	/^    struct sched_list_context_data * p_context_data;$/;"	m	struct:sched_list_manager	typeref:struct:sched_list_manager::sched_list_context_data
+p_context_data0	headers/types.hpp	/^    struct context_data * p_context_data0;$/;"	m	struct:sched_bitmap_manager	typeref:struct:sched_bitmap_manager::context_data
+p_context_data1	headers/types.hpp	/^    struct context_data * p_context_data1;$/;"	m	struct:sched_bitmap_manager	typeref:struct:sched_bitmap_manager::context_data
+p_strip_count	headers/fog_engine.hpp	/^        u32_t * p_strip_count;$/;"	m	class:fog_engine
+pagerank_program	application/pagerank.hpp	/^class pagerank_program{$/;"	c
+pagerank_vert_attr	application/pagerank.hpp	/^struct pagerank_vert_attr{$/;"	s
+parent	convert/k_way_merge.cpp	/^    int parent(int i)$/;"	f	class:minheap
+partition_cap	headers/config.hpp	/^		u32_t partition_cap;	\/\/how many vertices will be treated as a partition?$/;"	m	class:segment_config
+partition_gather_signal	headers/types.hpp	/^    int partition_gather_signal;$/;"	m	struct:context_data
+partition_gather_strip_id	headers/types.hpp	/^    int partition_gather_strip_id;$/;"	m	struct:context_data
+partition_gather_strip_id	headers/types.hpp	/^    int partition_gather_strip_id;$/;"	m	struct:sched_list_context_data
+pcpu_threads	headers/fog_engine.hpp	/^        cpu_thread<A,VA,U,T> ** pcpu_threads;$/;"	m	class:fog_engine
+per_bitmap_buf_head	headers/types.hpp	/^    char * per_bitmap_buf_head;$/;"	m	struct:context_data
+per_bitmap_buf_size	headers/types.hpp	/^    u32_t per_bitmap_buf_size;$/;"	m	struct:context_data
+per_bits_true_size	headers/types.hpp	/^    u32_t per_bits_true_size;$/;"	m	struct:context_data
+per_cpu_data	headers/config.hpp	/^struct per_cpu_data{$/;"	s
+per_cpu_info_list	headers/config.hpp	/^		per_cpu_data<VA>** per_cpu_info_list;$/;"	m	class:segment_config
+per_max_vert_id	headers/types.hpp	/^    u32_t per_max_vert_id;$/;"	m	struct:context_data
+per_min_vert_id	headers/types.hpp	/^    u32_t per_min_vert_id;$/;"	m	struct:context_data
+per_num_edges	headers/types.hpp	/^    u32_t per_num_edges;$/;"	m	struct:context_data
+pop_min	convert/k_way_merge.cpp	/^    void pop_min()$/;"	f	class:minheap
+predecessor	application/sssp.hpp	/^	u32_t predecessor;$/;"	m	struct:sssp_vert_attr
+prev_last_dest_vert	convert/k_way_merge.cpp	/^    u32_t prev_last_dest_vert;$/;"	m	struct:src_merge_sink	file:
+prev_last_src_vert	convert/k_way_merge.cpp	/^    u32_t prev_last_src_vert;$/;"	m	struct:src_merge_sink	file:
+prev_name_tmp_file	convert/process_in_edge.cpp	/^const char * prev_name_tmp_file;$/;"	v
+prev_root	application/scc.hpp	/^	u32_t prev_root;$/;"	m	struct:scc_vert_attr
+prev_update	headers/config.hpp	/^        bool prev_update;$/;"	m	struct:general_config
+process_adjlist	convert/process_adjlist.cpp	/^void process_adjlist(const char * input_file_name, $/;"	f
+process_edgelist	convert/process_edgelist.cpp	/^void process_edgelist( const char* input_file_name,$/;"	f
+process_in_edge	convert/process_in_edge.cpp	/^char* process_in_edge(u64_t mem_size,$/;"	f
+processor_id	headers/bitmap.hpp	/^        u32_t processor_id, num_processors;$/;"	m	class:bitmap
+processor_id	headers/cpu_thread.hpp	/^    const unsigned long processor_id; $/;"	m	class:cpu_thread
+produce_random_weight	convert/process_adjlist.cpp	/^float produce_random_weight()$/;"	f
+pt	headers/config_parse.h	/^boost::property_tree::ptree pt;$/;"	v
+radix_sort	convert/radix_sort.cpp	/^void radix_sort(struct tmp_in_edge * buf_1, struct tmp_in_edge * buf_2, $/;"	f
+radix_step	convert/radix_sort.cpp	/^void radix_step(struct tmp_in_edge * buf_1, struct tmp_in_edge * buf_2,$/;"	f
+rank	application/pagerank.hpp	/^	float rank;$/;"	m	struct:pagerank_vert_attr
+read_data	convert/k_way_merge.cpp	/^    void read_data(\/*int f,*\/ tmp_in_edge* tbuf, u64_t nbytes, u64_t off )$/;"	f	struct:merge_source
+read_one_edge	convert/process_edgelist.cpp	/^int read_one_edge( void )$/;"	f
+recent_src_vert	convert/k_way_merge.cpp	/^u32_t recent_src_vert = UINT_MAX;$/;"	v
+reduce_iters	application/pagerank.hpp	/^        static u32_t reduce_iters;$/;"	m	class:pagerank_program
+reduce_iters	application/pagerank.hpp	/^u32_t pagerank_program<T>::reduce_iters = 0;$/;"	m	class:pagerank_program
+right	convert/k_way_merge.cpp	/^    int right(int i)$/;"	f	class:minheap
+scatter_end_time	headers/fog_engine.hpp	/^        time_t scatter_end_time;$/;"	m	class:fog_engine
+scatter_fog_engine_state	headers/fog_engine.hpp	/^        static u32_t scatter_fog_engine_state;$/;"	m	class:fog_engine
+scatter_fog_engine_state	headers/fog_engine.hpp	/^u32_t fog_engine<A, VA, U, T>::scatter_fog_engine_state;$/;"	m	class:fog_engine
+scatter_one_edge	application/bfs.hpp	/^		static void scatter_one_edge($/;"	f	class:bfs_program
+scatter_one_edge	application/cc.hpp	/^		static void scatter_one_edge($/;"	f	class:cc_program
+scatter_one_edge	application/pagerank.hpp	/^		static void scatter_one_edge($/;"	f	class:pagerank_program
+scatter_one_edge	application/scc.hpp	/^		static void scatter_one_edge($/;"	f	class:scc_program
+scatter_one_edge	application/spmv.hpp	/^		static void scatter_one_edge($/;"	f	class:spmv_program
+scatter_one_edge	application/sssp.hpp	/^		static void scatter_one_edge($/;"	f	class:sssp_program
+scatter_param	headers/cpu_thread.hpp	/^struct scatter_param{$/;"	s
+scatter_signal	headers/cpu_thread.hpp	/^enum scatter_signal$/;"	g
+scatter_start_time	headers/fog_engine.hpp	/^        time_t scatter_start_time;$/;"	m	class:fog_engine
+scc_program	application/scc.hpp	/^class scc_program{$/;"	c
+scc_update	application/scc.hpp	/^struct scc_update$/;"	s
+scc_vert_attr	application/scc.hpp	/^struct scc_vert_attr{$/;"	s
+sched_bitmap_manager	headers/types.hpp	/^struct sched_bitmap_manager{$/;"	s
+sched_buf_head	headers/types.hpp	/^	sched_task* sched_buf_head;$/;"	m	struct:sched_list_manager
+sched_buf_size	headers/types.hpp	/^    u32_t sched_buf_size;    \/\/the size of this buffer (unit is "sched_task")$/;"	m	struct:sched_list_manager
+sched_list_context_data	headers/types.hpp	/^struct sched_list_context_data$/;"	s
+sched_list_manager	headers/types.hpp	/^struct sched_list_manager{$/;"	s
+sched_task	headers/types.hpp	/^struct sched_task{$/;"	s
+sched_task_counter	headers/types.hpp	/^    u32_t sched_task_counter;   \/\/remember the number of tasks.$/;"	m	struct:sched_list_manager
+sched_update_buf	headers/config.hpp	/^		char* sched_update_buf;$/;"	m	class:segment_config
+sched_update_buf_len	headers/config.hpp	/^		u64_t sched_update_buf_len;$/;"	m	class:segment_config
+seg_config	headers/cpu_thread.hpp	/^	segment_config<VA>* seg_config;$/;"	m	class:cpu_thread
+seg_config	headers/fog_engine.hpp	/^		static segment_config<VA> *seg_config;$/;"	m	class:fog_engine
+seg_config	headers/fog_engine.hpp	/^segment_config<VA> * fog_engine<A, VA, U, T>::seg_config;$/;"	m	class:fog_engine
+seg_read_counts	headers/fog_engine.hpp	/^        u32_t seg_read_counts;$/;"	m	class:fog_engine
+seg_write_counts	headers/fog_engine.hpp	/^        u32_t seg_write_counts; $/;"	m	class:fog_engine
+segment_cap	headers/config.hpp	/^		u32_t segment_cap;		\/\/how many vertices can be stored in one segment?$/;"	m	class:segment_config
+segment_config	headers/config.hpp	/^		segment_config(const char* buf_head)$/;"	f	class:segment_config
+segment_config	headers/config.hpp	/^class segment_config{$/;"	c
+sense	headers/cpu_thread.hpp	/^    volatile unsigned long sense;$/;"	m	class:barrier
+set_forward_backward	application/bfs.hpp	/^        static bool set_forward_backward;$/;"	m	class:bfs_program
+set_forward_backward	application/bfs.hpp	/^bool bfs_program<T>::set_forward_backward = false;$/;"	m	class:bfs_program
+set_forward_backward	application/cc.hpp	/^        static bool set_forward_backward;$/;"	m	class:cc_program
+set_forward_backward	application/cc.hpp	/^bool cc_program<T>::set_forward_backward = true;$/;"	m	class:cc_program
+set_forward_backward	application/pagerank.hpp	/^        static bool set_forward_backward;$/;"	m	class:pagerank_program
+set_forward_backward	application/pagerank.hpp	/^bool pagerank_program<T>::set_forward_backward = false;$/;"	m	class:pagerank_program
+set_forward_backward	application/scc.hpp	/^        static bool set_forward_backward;$/;"	m	class:scc_program
+set_forward_backward	application/scc.hpp	/^bool scc_program<T>::set_forward_backward = false;$/;"	m	class:scc_program
+set_forward_backward	application/spmv.hpp	/^        static bool set_forward_backward;$/;"	m	class:spmv_program
+set_forward_backward	application/spmv.hpp	/^bool spmv_program<T>::set_forward_backward = false;$/;"	m	class:spmv_program
+set_forward_backward	application/sssp.hpp	/^        static bool set_forward_backward;$/;"	m	class:sssp_program
+set_forward_backward	application/sssp.hpp	/^bool sssp_program<T>::set_forward_backward = false;$/;"	m	class:sssp_program
+setup_options_convert	headers/options_utils_convert.h	/^static void setup_options_convert(int argc, const char* argv[])$/;"	f
+setup_options_fog	headers/options_utils.h	/^static void setup_options_fog(int argc, const char* argv[])$/;"	f
+show_config	headers/config.hpp	/^		void show_config(const char* buf_head)$/;"	f	class:segment_config
+signal_of_partition_gather	headers/fog_engine.hpp	/^        int signal_of_partition_gather;$/;"	m	class:fog_engine
+signal_to_gather	headers/types.hpp	/^    u32_t signal_to_gather;$/;"	m	struct:context_data
+signal_to_scatter	headers/types.hpp	/^    u32_t signal_to_scatter;$/;"	m	struct:sched_list_context_data
+signal_to_scatter	headers/types.hpp	/^    u32_t signal_to_scatter;\/\/ 0 stands for normal , 1 stands for the situation when update-buf is full, 2 stands for stealing from other processors $/;"	m	struct:context_data
+sink	convert/k_way_merge.cpp	/^    merge_sink * sink;$/;"	m	class:kway_merge	file:
+sink	convert/k_way_merge.cpp	/^    src_merge_sink * sink;$/;"	m	class:src_kway_merge	file:
+size	headers/disk_thread.hpp	/^	u64_t offset,size;$/;"	m	struct:io_work
+someone_work_on_it	headers/disk_thread.hpp	/^	bool someone_work_on_it;$/;"	m	struct:io_work
+source_id	convert/k_way_merge.cpp	/^    int source_id;$/;"	m	struct:src_value_source	file:
+source_id	convert/k_way_merge.cpp	/^    int source_id;$/;"	m	struct:value_source	file:
+sources	convert/k_way_merge.cpp	/^    std::vector<merge_source*> sources;$/;"	m	class:kway_merge	file:
+sources	convert/k_way_merge.cpp	/^    std::vector<merge_source*> sources;$/;"	m	class:src_kway_merge	file:
+spmv_program	application/spmv.hpp	/^class spmv_program{$/;"	c
+spmv_update	application/spmv.hpp	/^struct spmv_update$/;"	s
+spmv_value	application/spmv.hpp	/^    float spmv_value;$/;"	m	struct:spmv_update
+spmv_value	application/spmv.hpp	/^    float spmv_value;$/;"	m	struct:spmv_vert_attr
+spmv_vert_attr	application/spmv.hpp	/^struct spmv_vert_attr{$/;"	s
+src_kway_merge	convert/k_way_merge.cpp	/^    src_kway_merge(std::vector<merge_source*> sources, src_merge_sink* sink) : sources(sources),sink(sink),m_heap(int(sources.size()))$/;"	f	class:src_kway_merge
+src_kway_merge	convert/k_way_merge.cpp	/^class src_kway_merge$/;"	c	file:
+src_merge_sink	convert/k_way_merge.cpp	/^    src_merge_sink(std::string file_name)$/;"	f	struct:src_merge_sink
+src_merge_sink	convert/k_way_merge.cpp	/^struct src_merge_sink$/;"	s	file:
+src_temp_file	convert/k_way_merge.cpp	/^    FILE *src_temp_file;$/;"	m	struct:src_merge_sink	file:
+src_value_source	convert/k_way_merge.cpp	/^    src_value_source(int id, tmp_in_edge val) : source_id(id), value(val){}$/;"	f	struct:src_value_source
+src_value_source	convert/k_way_merge.cpp	/^struct src_value_source$/;"	s	file:
+src_vert	convert/process_edgelist.cpp	/^unsigned int src_vert, dst_vert;$/;"	v
+src_vert	headers/convert.h	/^        unsigned int src_vert;$/;"	m	struct:convert::old_edge
+src_vert	headers/convert.h	/^        unsigned int src_vert;$/;"	m	struct:convert::tmp_in_edge
+src_vert	headers/types.hpp	/^    u32_t src_vert;$/;"	m	struct:in_edge
+sssp_program	application/sssp.hpp	/^class sssp_program{$/;"	c
+sssp_vert_attr	application/sssp.hpp	/^struct sssp_vert_attr{$/;"	s
+start	headers/types.hpp	/^	u32_t start;$/;"	m	struct:sched_task
+start_time	headers/fog_engine.hpp	/^        time_t start_time;$/;"	m	class:fog_engine
+start_vert	headers/bitmap.hpp	/^        u32_t start_vert, term_vert;$/;"	m	class:bitmap
+start_vert_id	headers/cpu_thread.hpp	/^	u32_t start_vert_id;$/;"	m	struct:init_param
+start_vid	application/sssp.hpp	/^		static u32_t start_vid;$/;"	m	class:sssp_program
+start_vid	application/sssp.hpp	/^unsigned int sssp_program<T>::start_vid = 0;$/;"	m	class:sssp_program
+state_param	headers/cpu_thread.hpp	/^	void* state_param;$/;"	m	struct:cpu_work
+status	headers/cpu_thread.hpp	/^	int status;$/;"	m	class:cpu_thread
+steal_bits_true_size	headers/types.hpp	/^    u32_t steal_bits_true_size;$/;"	m	struct:context_data
+steal_context_edge_id	headers/types.hpp	/^    u32_t steal_context_edge_id;$/;"	m	struct:context_data
+steal_max_vert_id	headers/types.hpp	/^    u32_t steal_max_vert_id;$/;"	m	struct:context_data
+steal_min_vert_id	headers/types.hpp	/^    u32_t steal_min_vert_id;$/;"	m	struct:context_data
+steal_num_virt_cpus	headers/types.hpp	/^    u32_t steal_num_virt_cpus;$/;"	m	struct:context_data
+steal_special_signal	headers/types.hpp	/^    bool steal_special_signal;$/;"	m	struct:context_data
+steal_virt_cpu_id	headers/types.hpp	/^    u32_t steal_virt_cpu_id;$/;"	m	struct:context_data
+strip_buf_head	headers/config.hpp	/^	char* strip_buf_head;$/;"	m	struct:per_cpu_data
+strip_buf_len	headers/config.hpp	/^	u64_t strip_buf_len;$/;"	m	struct:per_cpu_data
+strip_cap	headers/config.hpp	/^	u32_t strip_cap;		\/\/how many updates will a (whole) strip store?$/;"	m	struct:per_cpu_data
+strip_id	headers/cpu_thread.hpp	/^    int strip_id;$/;"	m	struct:gather_param
+sync	headers/cpu_thread.hpp	/^    static barrier *sync;$/;"	m	class:cpu_thread
+sync	headers/cpu_thread.hpp	/^barrier * cpu_thread<A, VA, U, T>::sync;$/;"	m	class:cpu_thread
+t_edge	headers/cpu_thread.hpp	/^    T t_edge;$/;"	m	class:cpu_thread
+t_in_edge	headers/cpu_thread.hpp	/^    in_edge t_in_edge;$/;"	m	class:cpu_thread
+t_update	headers/cpu_thread.hpp	/^    update<U> t_update; $/;"	m	class:cpu_thread
+tail	headers/types.hpp	/^    sched_task *head, *tail, *current;$/;"	m	struct:sched_list_manager
+target_sched_manager	headers/config.hpp	/^	sched_bitmap_manager * target_sched_manager;$/;"	m	struct:per_cpu_data
+term	headers/types.hpp	/^	u32_t term;$/;"	m	struct:sched_task
+term_vert	headers/bitmap.hpp	/^        u32_t start_vert, term_vert;$/;"	m	class:bitmap
+terminate	headers/cpu_thread.hpp	/^    static volatile bool terminate;$/;"	m	class:cpu_thread
+terminate	headers/cpu_thread.hpp	/^volatile bool cpu_thread<A, VA, U, T>::terminate;$/;"	m	class:cpu_thread
+terminate_all	headers/disk_thread.hpp	/^	bool terminate_all;$/;"	m	class:io_queue
+theory_per_slice_size	headers/config.hpp	/^		u64_t theory_per_slice_size; $/;"	m	class:segment_config
+threshold	headers/cpu_thread.hpp	/^    u32_t threshold;$/;"	m	struct:gather_param
+tmp_in_edge	headers/convert.h	/^    struct tmp_in_edge$/;"	s	namespace:convert
+tmp_num_edges	convert/k_way_merge.cpp	/^    u64_t tmp_num_edges;$/;"	m	struct:merge_sink	file:
+tmp_num_edges	convert/k_way_merge.cpp	/^    u64_t tmp_num_edges;$/;"	m	struct:src_merge_sink	file:
+tmp_out_dir	convert/process_in_edge.cpp	/^char * tmp_out_dir;$/;"	v
+total_buf_len	convert/process_in_edge.cpp	/^u64_t total_buf_len;$/;"	v
+total_buf_size	convert/process_in_edge.cpp	/^u64_t total_buf_size;$/;"	v
+type1_edge	headers/types.hpp	/^struct type1_edge$/;"	s
+type2_edge	headers/convert.h	/^    struct type2_edge$/;"	s	namespace:convert
+type2_edge	headers/types.hpp	/^struct type2_edge$/;"	s
+type2_edge_buffer	convert/process_edgelist.cpp	/^struct type2_edge type2_edge_buffer[EDGE_BUFFER_LEN];$/;"	v	typeref:struct:type2_edge
+u32_t	convert/k_way_merge.cpp	/^typedef unsigned int u32_t;$/;"	t	file:
+u32_t	convert/process_in_edge.cpp	/^typedef unsigned int u32_t;$/;"	t	file:
+u32_t	headers/bitmap.hpp	/^typedef unsigned int u32_t;$/;"	t
+u32_t	headers/disk_thread.hpp	/^typedef unsigned int u32_t;$/;"	t
+u32_t	headers/types.hpp	/^typedef unsigned int u32_t;$/;"	t
+u64_t	convert/k_way_merge.cpp	/^typedef unsigned long long u64_t;$/;"	t	file:
+u64_t	convert/process_in_edge.cpp	/^typedef unsigned long long u64_t;$/;"	t	file:
+u64_t	convert/radix_sort.cpp	/^typedef unsigned long long u64_t;$/;"	t	file:
+u64_t	headers/bitmap.hpp	/^typedef unsigned long long u64_t;$/;"	t
+u64_t	headers/disk_thread.hpp	/^typedef unsigned long long u64_t;$/;"	t
+u64_t	headers/types.hpp	/^typedef unsigned long long u64_t;$/;"	t
+u8_t	convert/radix_sort.cpp	/^typedef unsigned char u8_t;$/;"	t	file:
+update	headers/types.hpp	/^struct update{$/;"	s
+update_manager	headers/config.hpp	/^	update_map_manager* update_manager;$/;"	m	struct:per_cpu_data
+update_map_head	headers/types.hpp	/^	u32_t* update_map_head;	\/\/points to the beginning of the map$/;"	m	struct:update_map_manager
+update_map_manager	headers/types.hpp	/^struct update_map_manager{$/;"	s
+update_map_size	headers/types.hpp	/^	u32_t update_map_size;	\/\/the size of update map: num_of_segments*num_of_processors. IN BYTES!!!$/;"	m	struct:update_map_manager
+value	application/sssp.hpp	/^	float	value;$/;"	m	struct:sssp_vert_attr
+value	convert/k_way_merge.cpp	/^    tmp_in_edge value;$/;"	m	struct:src_value_source	file:
+value	convert/k_way_merge.cpp	/^    tmp_in_edge value;$/;"	m	struct:value_source	file:
+value_source	convert/k_way_merge.cpp	/^    value_source(int id, tmp_in_edge val) : source_id(id), value(val){}$/;"	f	struct:value_source
+value_source	convert/k_way_merge.cpp	/^struct value_source$/;"	s	file:
+vert_array_header	headers/index_vert_array.hpp	/^		vert_index* vert_array_header;$/;"	m	class:index_vert_array
+vert_attr	headers/types.hpp	/^	VA vert_attr;$/;"	m	struct:update
+vert_buffer_offset	convert/k_way_merge.cpp	/^u32_t vert_buffer_offset = 0;$/;"	v
+vert_file_name	headers/config.hpp	/^		std::string vert_file_name;$/;"	m	struct:general_config
+vert_id	headers/convert.h	/^        unsigned int vert_id;$/;"	m	struct:convert::old_vert_index
+vert_index	headers/convert.h	/^    struct vert_index$/;"	s	namespace:convert
+vert_index	headers/cpu_thread.hpp	/^	index_vert_array<T>* vert_index;$/;"	m	class:cpu_thread
+vert_index	headers/fog_engine.hpp	/^		static index_vert_array<T>* vert_index;$/;"	m	class:fog_engine
+vert_index	headers/fog_engine.hpp	/^index_vert_array<T> * fog_engine<A, VA, U, T>::vert_index;$/;"	m	class:fog_engine
+vert_index	headers/types.hpp	/^struct vert_index{$/;"	s
+vert_index_file_fd	headers/index_vert_array.hpp	/^		int vert_index_file_fd;$/;"	m	class:index_vert_array
+vert_index_file_length	headers/index_vert_array.hpp	/^		unsigned long long vert_index_file_length;$/;"	m	class:index_vert_array
+vert_suffix	convert/k_way_merge.cpp	/^u32_t vert_suffix = 0;$/;"	v
+vertex_map	convert/edgelist_map.cpp	/^unsigned int *vertex_map;$/;"	v
+vm	headers/options_utils.h	/^boost::program_options::variables_map vm;$/;"	v
+vm	headers/options_utils_convert.h	/^boost::program_options::variables_map vm;$/;"	v
+wait	headers/cpu_thread.hpp	/^    void wait()$/;"	f	class:barrier
+wake_up_sort	convert/process_in_edge.cpp	/^void wake_up_sort(u32_t file_id, u64_t buf_size, bool final_call)$/;"	f
+wake_up_sort_src	convert/process_in_edge.cpp	/^u64_t wake_up_sort_src(u32_t file_id, u64_t buf_size, bool final_call)$/;"	f
+will_be_updated	headers/types.hpp	/^    bool will_be_updated;$/;"	m	struct:context_data
+with_in_edge	headers/config.hpp	/^        bool with_in_edge;$/;"	m	struct:general_config
+work_mutex	headers/disk_thread.hpp	/^	boost::interprocess::interprocess_mutex work_mutex;$/;"	m	struct:io_work
+work_queue	headers/disk_thread.hpp	/^    class io_queue* work_queue;$/;"	m	class:disk_thread	typeref:class:disk_thread::io_queue
+work_to_do	headers/cpu_thread.hpp	/^    static struct cpu_work<A,VA,U, T> * volatile work_to_do;$/;"	m	class:cpu_thread
+work_to_do	headers/cpu_thread.hpp	/^cpu_work<A,VA,U, T> * volatile cpu_thread<A, VA, U, T>::work_to_do;$/;"	m	class:cpu_thread
+write_desc	convert/convert.cpp	/^void write_desc()$/;"	f
+~kway_merge	convert/k_way_merge.cpp	/^    ~kway_merge()$/;"	f	class:kway_merge
+~merge_source	convert/k_way_merge.cpp	/^    ~merge_source()$/;"	f	struct:merge_source
+~minheap	convert/k_way_merge.cpp	/^    ~minheap()$/;"	f	class:minheap
+~src_kway_merge	convert/k_way_merge.cpp	/^    ~src_kway_merge()$/;"	f	class:src_kway_merge
