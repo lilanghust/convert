@@ -1,4 +1,4 @@
-This project contains two programs: "convert"
+This project contains one programs: "convert"
 
 "convert": The program that converts SNAP ( ordered directed edgelist) files to (ordered undirected edgelist) 
             and then converts (ordered undirected edgelist) to (ordered adjacency list ) 
