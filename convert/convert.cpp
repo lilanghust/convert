@@ -126,8 +126,8 @@ void write_desc()
 	//graph description
 	desc_file.open( out_desc_file_name.c_str() );
 	desc_file << "[description]\n";
-	desc_file << "min_vertex_id = " << min_vertex_id << "\n";
-	desc_file << "max_vertex_id = " << max_vertex_id << "\n";
+	desc_file << "min_vertex_id = " << min_vertex_id - 1 << "\n";
+	desc_file << "max_vertex_id = " << max_vertex_id - 1 << "\n";
 	desc_file << "num_of_edges = " << num_edges << "\n";
 	desc_file << "max_out_edges = " << max_out_edges << "\n";
 	desc_file.close();

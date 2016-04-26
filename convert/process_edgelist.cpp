@@ -93,10 +93,10 @@ void process_edgelist( const char* input_file_name,
         if (num_edges == 0)
             continue;
         //trace the vertex ids
-        if( src_vert < min_vertex_id ) min_vertex_id = src_vert;
-        if( dst_vert < min_vertex_id ) min_vertex_id = dst_vert;
-        if( src_vert > max_vertex_id ) max_vertex_id = src_vert;
-        if( dst_vert > max_vertex_id ) max_vertex_id = dst_vert;
+        if( src_vert + 1 < min_vertex_id ) min_vertex_id = src_vert + 1;
+        if( dst_vert + 1 < min_vertex_id ) min_vertex_id = dst_vert + 1;
+        if( src_vert + 1 > max_vertex_id ) max_vertex_id = src_vert + 1;
+        if( dst_vert + 1 > max_vertex_id ) max_vertex_id = dst_vert + 1;
 
         (*(buf1 + current_buf_size)).src_vert = src_vert + 1;
         (*(buf1 + current_buf_size)).dest_vert = dst_vert + 1;
@@ -143,7 +143,7 @@ void process_edgelist( const char* input_file_name,
 
     printf( "generating adjacency list\n" );       
     //write the first line
-    fprintf(edge_file, "%d %llu\n", max_vertex_id+1, num_edges_adjlist/2);
+    fprintf(edge_file, "%d %llu\n", max_vertex_id, num_edges_adjlist/2);
     unsigned int i=0;
     while ( read_one_edge() != CUSTOM_EOF ){
         if( num_edges == 1 )
