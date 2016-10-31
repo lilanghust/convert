@@ -93,6 +93,7 @@ void process_edgelist( const char* input_file_name,
         if (num_edges == 0)
             continue;
         //trace the vertex ids
+        //assume the min_vertex_id will be 0 (if it is 1, we don't need to plus 1; if it is bigger than 1, we need to minus something.)
         if( src_vert + 1 < min_vertex_id ) min_vertex_id = src_vert + 1;
         if( dst_vert + 1 < min_vertex_id ) min_vertex_id = dst_vert + 1;
         if( src_vert + 1 > max_vertex_id ) max_vertex_id = src_vert + 1;
