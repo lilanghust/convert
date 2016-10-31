@@ -58,21 +58,9 @@ $(BINARY_DIR)/convert: $(CONVERT_OBJS)
 $(CONVERT_OBJS): |$(OBJECT_DIR)
 $(CONVERT_TARGET): |$(BINARY_DIR)
 
-#following lines defined for testing
-$(OBJECT_DIR)/test.o:convert/test.cpp 
-	$(CXX) $(CXXFLAGS) -c -o $@ $<
-
-$(BINARY_DIR)/test: $(TEST_OBJS)
-	$(CXX) -o $@ $(TEST_OBJS) $(SYSLIBS)
-
-$(TEST_OBJS): |$(OBJECT_DIR)
-$(TEST_TARGET): |$(BINARY_DIR)
-
 .PHONY:
 
 convert: $(CONVERT_TARGET)
-
-test: $(TEST_TARGET)
 
 # utilities
 cscope:
@@ -84,8 +72,6 @@ cscope:
 
 clean: 
 	rm -f $(CONVERT_TARGET) $(CONVERT_OBJS)
-	rm -f $(TEST_TARGET) $(TEST_OBJS)
 	rm -f $(BINARY_DIR)/*
 	rm -f cscope.*
-	rm -rf *sched_strip*
 
