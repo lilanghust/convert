@@ -18,7 +18,6 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <unistd.h>
-#include <time.h>
 
 #include "convert.h"
 using namespace convert;
@@ -62,8 +61,6 @@ void process_edgelist( const char* input_file_name,
 
     printf( "Start Processing %s.\nWill generate %s in destination folder.\n", 
             input_file_name, edge_file_name );
-
-    srand((unsigned int)time(NULL));
 
     in = fopen( input_file_name, "r" );
     if( in == NULL ){
