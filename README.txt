@@ -4,7 +4,7 @@ This project contains one programs: "convert"
             and then converts (ordered undirected edgelist) to (ordered adjacency list ) 
             and then makes partition based on (ordered adjacency list) using gpmetis
             and then maps the vertices in the shell script in order to make the vertices in a partition is consecutive.
-            adn then generates mapped directed edgelist using edgelist_map.
+            and then generates mapped directed edgelist using edgelist_map.
 
 output: 1. directed edgelist ordered by dstVId, each line format (srcPID(not used), srcVID, dstPID(not used), dstVID, cost)
         2. mapped vertices list, each line format (PID, vid, uuid(the original vid))
