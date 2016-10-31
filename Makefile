@@ -16,10 +16,6 @@ CONVERT_SRC = convert.o process_edgelist.o process_adjlist.o edgelist_map.o radi
 CONVERT_OBJS= $(addprefix $(OBJECT_DIR)/, $(CONVERT_SRC))
 CONVERT_TARGET=$(BINARY_DIR)/convert
 
-TEST_SRC = test.o
-TEST_OBJS= $(addprefix $(OBJECT_DIR)/, $(TEST_SRC))
-TEST_TARGET=$(BINARY_DIR)/test
-
 all: $(CONVERT_TARGET) 
 #all: $(CONVERT_TARGET) $(TEST_TARGET)
 
