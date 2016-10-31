@@ -1,6 +1,6 @@
 This project contains one programs: "convert"
 
-"convert": The program that converts SNAP (directed edgelist) files to (ordered undirected edgelist) 
+"convert": The program that converts SNAP (ordered directed edgelist) files to (ordered undirected edgelist) 
             and then converts (ordered undirected edgelist) to (ordered adjacency list ) 
             and then makes partition based on (ordered adjacency list) using gpmetis
             and then maps the vertices in the shell script in order to make the vertices in a partition is consecutive.
