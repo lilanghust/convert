@@ -447,7 +447,7 @@ struct src_merge_sink
                     ++del_num_edges;
                     continue;
                 }
-                fprintf( src_temp_file, "%d\t%d\n", (*p).src_vert, (*p).dest_vert );
+                fprintf( src_temp_file, "%u\t%u\n", (*p).src_vert, (*p).dest_vert );
             }
             prev_last_src_vert = (*(p-1)).src_vert;
             prev_last_dest_vert = (*(p-1)).dest_vert;
@@ -552,26 +552,14 @@ u64_t do_src_merge(char *tmp_out_dir, char *origin_edge_file)
 
     std::string tmp_file_name(tmp_out_dir) ;
     tmp_file_name += origin_edge_file;
-    tmp_file_name += "_undirected_edgelist.txt";
+    tmp_file_name += "-undirected-edgelist";
     src_merge_sink* sink = new src_merge_sink(tmp_file_name);
 
     src_kway_merge k_merger(sources, sink);
     k_merger.merge();
     //lilang test
-    std::cout << prev_name_tmp_file << std::endl;
-    /*for (unsigned int i = 0; i < num_tmp_files; i++)
-      {
-      std::stringstream delete_current_file_id;
-      delete_current_file_id << i;
-      std::string delete_current_file_name = std::string(prev_name_tmp_file) + delete_current_file_id.str();
-
-      std::cout << "delete tmp file "  << delete_current_file_name << std::endl;
-      char tmp[1024];
-      sprintf(tmp,"rm -rf %s", delete_current_file_name.c_str());
-      int ret = system(tmp);
-      if (ret < 0)
-      assert(false);
-      }*/
+    //std::cout << prev_name_tmp_file << std::endl;
+    
     return sink->tmp_num_edges - sink->del_num_edges;
 }
 

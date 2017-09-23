@@ -68,15 +68,26 @@ namespace convert
     {
         unsigned int in_vert;
     }__attribute__((aligned(4)));
+
+    struct vertex_map
+    {
+        unsigned int partition_id;
+        unsigned int old_id;
+        unsigned int new_id;
+    }__attribute__((aligned(4)));
 }
 
 char *get_adjline();
 int flush_buffer_to_file( int fd, char* buffer, unsigned int size );
-void init_max_vertex_id();
-void write_desc();
+void read_desc(std::string path);
+void write_desc(std::string path);
 void process_adjlist(const char*, const char *, const char *);
 void process_edgelist(const char*, const char *, const char *, const char *);
+bool comp_partition_id(const struct convert::vertex_map &, const struct convert::vertex_map &);
+bool comp_old_id(const struct convert::vertex_map &, const struct convert::vertex_map &);
 void edgelist_map(const char*, const char *, const char *, const char *, const char *);
+void remap_one_file(FILE *, unsigned long long);
+void remap(const char*, const char *, const char *, const char *);
 void radix_sort(struct convert::tmp_in_edge * , struct convert::tmp_in_edge * , unsigned long long, unsigned int, bool);
 char *process_in_edge(unsigned long long, const char *, const char *);
 void insert_sort_for_buf(unsigned int, unsigned int);
@@ -86,7 +97,8 @@ void hook_for_merge();
 void do_merge();
 unsigned long long do_src_merge(char *, char *);
 int read_one_edge( void );
-void init_vertex_map( unsigned int * );
+void init_vertex_map( struct convert::vertex_map* );
+void init_global_vertex_map();
 float produce_random_weight();
 void *map_anon_memory( unsigned long long size, bool mlocked,bool zero = false );
 

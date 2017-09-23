@@ -290,6 +290,7 @@ u64_t wake_up_sort_src(u32_t file_id, u64_t buf_size, bool final_call)
 {
     /*start sort for this buffer*/
     //sorted by the dest
+    //for remove the replications
     radix_sort(buf1, buf2, buf_size, max_vertex_id, false);
     //sorted by the src
     radix_sort(buf1, buf2, buf_size, max_vertex_id, true);
@@ -301,9 +302,9 @@ u64_t wake_up_sort_src(u32_t file_id, u64_t buf_size, bool final_call)
     tmp_file_name += origin_edge_file;
 
     if (final_call && file_id == 0)
-        tmp_file_name += "_undirected_edgelist.txt";
+        tmp_file_name += "-undirected-edgelist";
     else
-        tmp_file_name += "-tmp_file_" + str_file_id.str();
+        tmp_file_name += "-tmp-file-" + str_file_id.str();
 
     FILE *tmp_in_file = fopen( tmp_file_name.c_str(), "w+" );
     if ( tmp_in_file == NULL ) {
@@ -312,19 +313,20 @@ u64_t wake_up_sort_src(u32_t file_id, u64_t buf_size, bool final_call)
     }
     printf("final_call is %d,file_id is %d\n",final_call,file_id);
     if (final_call && file_id == 0){
-        unsigned int del_num_edges=0;
-        tmp_in_edge *p = buf1; 
-        for(unsigned int i = 0;i < buf_size; ++i, ++p){
-            if( i > 0 && (*p).dest_vert == (*(p-1)).dest_vert && (*p).src_vert == (*(p-1)).src_vert )
-            {
+        unsigned int del_num_edges = 0;
+        fprintf( tmp_in_file, "%u\t%u\n", buf1[0].src_vert, buf1[0].dest_vert );
+        tmp_in_edge *p = buf1 + 1; 
+        for(unsigned int i = 1;i < buf_size; ++i, ++p){
+            //delete the replications
+            if( p->dest_vert == (p-1)->dest_vert && p->src_vert == (p-1)->src_vert ){
                 ++del_num_edges;
                 continue;
             }
-            fprintf( tmp_in_file, "%d\t%d\n", (*p).src_vert, (*p).dest_vert );
+            fprintf( tmp_in_file, "%u\t%u\n", p->src_vert, p->dest_vert );
         }
         fclose(tmp_in_file);
         printf("file_id=%d\n",file_id);
-        return buf_size - del_num_edges; 
+        return current_buf_size - del_num_edges; 
     }
     else{
         //	flush_buffer_to_file( tmp_in_file, (char*)buf1, (buf_size*sizeof(tmp_in_edge)));
@@ -355,7 +357,7 @@ u64_t wake_up_sort_src(u32_t file_id, u64_t buf_size, bool final_call)
         prev_tmp += origin_edge_file;
         tmp_out += origin_edge_file;
         in_name_file = tmp_out.c_str();
-        prev_tmp += "-tmp_file_";
+        prev_tmp += "-tmp-file-";
         prev_name_tmp_file = prev_tmp.c_str();
 
         return do_src_merge(tmp_out_dir, origin_edge_file);

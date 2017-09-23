@@ -46,12 +46,10 @@ using namespace convert;
 //boost::program_options::variables_map vm;
 
 //statistic data below
-unsigned int min_vertex_id=100000, max_vertex_id=0;
+unsigned int min_vertex_id=100000000, max_vertex_id=0;
 unsigned long long num_edges=0;
 unsigned long max_out_edges = 0;
 unsigned long long mem_size;
-std::fstream desc_file;
-std::string out_desc_file_name; 
 
 int main( int argc, const char**argv)
 {
@@ -59,7 +57,7 @@ int main( int argc, const char**argv)
 	//input files
 	std::string input_graph_name, input_file_name, temp;
 	//output files
-	std::string out_dir, out_edge_file_name,
+	std::string in_dir, out_dir, out_edge_file_name,
 		vertex_file_name;
     std::string snap_type;	
 	char* buffer;
@@ -68,17 +66,14 @@ int main( int argc, const char**argv)
 	setup_options_convert( argc, argv );
 
 	input_graph_name = temp = vm["graph"].as<std::string>();
-	pos = temp.find_last_of( "/" );
-	temp = temp.substr( pos+1 );
-	pos = temp.find_last_of( "." );
-	input_file_name = temp.substr(0,pos);
+	pos = temp.find_last_of("/");
+    in_dir = temp.substr(0, pos+1);
+	input_file_name = temp.substr(pos+1);
 
 	out_dir = vm["destination"].as<std::string>();
-	vertex_file_name = input_file_name +"_b20s-vertices.txt";
-    out_desc_file_name = out_dir+ input_file_name +".desc";
+	vertex_file_name = in_dir + input_file_name + "-adjlist.part";
 
-	mem_size = (unsigned long long)512*1024*1024;
-	std::cout << "Pre-allocation memory size is " << mem_size/(1024*1024) << "(MB)" << std::endl;
+	mem_size = (unsigned long long)(vm["memory"].as<int>())*1024l*1024l;
     buffer = process_in_edge(mem_size, input_file_name.c_str(), out_dir.c_str());
 
 	std::cout << "Input file: " << input_file_name << "\n";
@@ -86,28 +81,37 @@ int main( int argc, const char**argv)
 	snap_type = vm["type"].as<std::string>();
 	if( snap_type == "edgelist" )
     {
-	    out_edge_file_name = out_dir+ input_file_name +"_adjlist.txt";
+	    out_edge_file_name = out_dir+ input_file_name +"-adjlist";
         process_edgelist( input_graph_name.c_str(), 
 				out_edge_file_name.c_str(), 
 				out_dir.c_str(), 
                 input_file_name.c_str());
-        write_desc();
+        write_desc(out_dir + input_file_name + ".desc");
     }
 	else if (snap_type == "adjlist" )
     {
-        out_edge_file_name = out_dir+ input_file_name +"_adjlist.txt";
+        out_edge_file_name = out_dir+ input_file_name +"-adjlist";
 		process_adjlist( input_graph_name.c_str(), 
 				out_edge_file_name.c_str(), 
 				vertex_file_name.c_str());
-        write_desc();
+        write_desc(out_dir + input_file_name + ".desc");
     }
 	else if (snap_type == "edgelist_map" )
     {
-        init_max_vertex_id();
-        out_edge_file_name = out_dir+ input_file_name +"_b20s-edges.txt";
+        read_desc(in_dir + input_file_name + ".desc");
+        out_edge_file_name = out_dir+ input_file_name +"-edges-map.txt";
         //std::cout << "edgelist_map: " << vertex_file_name << std::endl;
 		edgelist_map( input_graph_name.c_str(), 
 				out_edge_file_name.c_str(), 
+				vertex_file_name.c_str(),
+				out_dir.c_str(), 
+                input_file_name.c_str());
+    }
+	else if (snap_type == "remap" )
+    {
+        read_desc(in_dir + input_file_name + ".desc");
+        //std::cout << "edgelist_map: " << vertex_file_name << std::endl;
+		remap( input_graph_name.c_str(), 
 				vertex_file_name.c_str(),
 				out_dir.c_str(), 
                 input_file_name.c_str());
@@ -121,25 +125,27 @@ int main( int argc, const char**argv)
 	munmap( buffer, mem_size);
 }
 
-void write_desc()
+void write_desc(std::string path)
 {
 	//graph description
-	desc_file.open( out_desc_file_name.c_str() );
+    std::ofstream desc_file( path.c_str() );
 	desc_file << "[description]\n";
-	desc_file << "min_vertex_id = " << min_vertex_id - 1 << "\n";
-	desc_file << "max_vertex_id = " << max_vertex_id - 1 << "\n";
+	desc_file << "min_vertex_id = " << min_vertex_id << "\n";
+	desc_file << "max_vertex_id = " << max_vertex_id << "\n";
 	desc_file << "num_of_edges = " << num_edges << "\n";
 	desc_file << "max_out_edges = " << max_out_edges << "\n";
 	desc_file.close();
 }
 
-void init_max_vertex_id()
+void read_desc(std::string path)
 {
     char line_buffer[1000];
-	desc_file.open( out_desc_file_name.c_str() );
+    std::ifstream desc_file( path.c_str() );
     desc_file.getline( line_buffer, 1000 );
     desc_file.getline( line_buffer, 1000 );
+    sscanf(line_buffer, "min_vertex_id = %u", &min_vertex_id);
     desc_file.getline( line_buffer, 1000 );
-    sscanf(line_buffer, "max_vertex_id = %d", &max_vertex_id);
+    sscanf(line_buffer, "max_vertex_id = %u", &max_vertex_id);
+    max_vertex_id -= min_vertex_id;
 	desc_file.close();
 }

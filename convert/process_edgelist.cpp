@@ -21,7 +21,7 @@
 
 #include "convert.h"
 using namespace convert;
-#define LINE_FORMAT		"%d\t%d\n"
+#define LINE_FORMAT		"%u\t%u\n"
 
 char line_buffer[MAX_LINE_LEN];
 FILE * in;
@@ -29,7 +29,6 @@ FILE * out_txt;
 FILE * edge_file;
 int file_id;
 //hejian-debug
-unsigned long long line_no=0;
 unsigned int src_vert, dst_vert;
 
 //when buffer is filled, write to the output index/edge file
@@ -77,32 +76,41 @@ void process_edgelist( const char* input_file_name,
 
     memset( (char*)type2_edge_buffer, 0, EDGE_BUFFER_LEN*sizeof(struct type2_edge) );
 
-    //init the global variable
-    line_no = 0;
+    //init 
     num_edges = 0;
+    fseek( in , 0 , SEEK_SET );	
 
-    //init the file pointer to  the head of the file
+    //get the min_vertex_id
+    while ( read_one_edge() != CUSTOM_EOF ){
+        //jump the ##
+        if (num_edges == 0 || src_vert == dst_vert)//remove self-cycle
+            continue;
+        //trace the vertex ids
+        //for metis, the start_vertex_id is 1
+        if( src_vert + 1 < min_vertex_id ) min_vertex_id = src_vert;
+        if( dst_vert + 1 < min_vertex_id ) min_vertex_id = dst_vert;
+        if( src_vert + 1 > max_vertex_id ) max_vertex_id = src_vert;
+        if( dst_vert + 1 > max_vertex_id ) max_vertex_id = dst_vert;
+    }
+
+    //init
+    num_edges = 0;
     fseek( in , 0 , SEEK_SET );	
     
     printf( "convert to undirected edge list...\n" );       
     while ( read_one_edge() != CUSTOM_EOF ){
         //jump the ##
-        if (num_edges == 0)
+        if (num_edges == 0 || src_vert == dst_vert)//remove self-cycle
             continue;
         //trace the vertex ids
-        //assume the min_vertex_id will be 0 (if it is 1, we don't need to plus 1; if it is bigger than 1, we need to minus something.)
-        if( src_vert + 1 < min_vertex_id ) min_vertex_id = src_vert + 1;
-        if( dst_vert + 1 < min_vertex_id ) min_vertex_id = dst_vert + 1;
-        if( src_vert + 1 > max_vertex_id ) max_vertex_id = src_vert + 1;
-        if( dst_vert + 1 > max_vertex_id ) max_vertex_id = dst_vert + 1;
+        //for metis, the start_vertex_id is 1
+        (*(buf1 + current_buf_size)).src_vert = src_vert + 1 - min_vertex_id;
+        (*(buf1 + current_buf_size)).dest_vert = dst_vert + 1 - min_vertex_id;
+        ++current_buf_size;
 
-        (*(buf1 + current_buf_size)).src_vert = src_vert + 1;
-        (*(buf1 + current_buf_size)).dest_vert = dst_vert + 1;
-        current_buf_size++;
-
-        (*(buf1 + current_buf_size)).src_vert = dst_vert + 1;
-        (*(buf1 + current_buf_size)).dest_vert = src_vert + 1;
-        current_buf_size++;
+        (*(buf1 + current_buf_size)).src_vert = dst_vert + 1 - min_vertex_id;
+        (*(buf1 + current_buf_size)).dest_vert = src_vert + 1 - min_vertex_id;
+        ++current_buf_size;
 
         if (current_buf_size == each_buf_size)
         {
@@ -121,10 +129,8 @@ void process_edgelist( const char* input_file_name,
         current_buf_size = 0;
     }
 
-    //init the global variable 
-    line_no = 0; 
+    //init
     num_edges = 0;
-    file_id = 0;
 
     //reinit the file pointer
     char * tmp_out_dir;
@@ -132,16 +138,16 @@ void process_edgelist( const char* input_file_name,
     strcpy(tmp_out_dir, out_dir);
     std::string tmp_file (tmp_out_dir);
     tmp_file += origin_edge_file;
-    tmp_file += "_undirected_edgelist.txt";
+    tmp_file += "-undirected-edgelist";
     in = fopen( tmp_file.c_str(), "r" ); 
     if( in == NULL ){ 
         printf( "Cannot open the new undirected edge list!\n" ); 
         exit(1); 
     } 
 
-    printf( "generating adjacency list\n" );       
+    printf( "generating adjacency list...\n" );       
     //write the first line
-    fprintf(edge_file, "%d %llu\n", max_vertex_id, num_edges_adjlist/2);
+    fprintf(edge_file, "%u %llu\n", max_vertex_id-min_vertex_id+1, num_edges_adjlist/2);
     unsigned int i=0;
     while ( read_one_edge() != CUSTOM_EOF ){
         if( num_edges == 1 )
@@ -150,15 +156,19 @@ void process_edgelist( const char* input_file_name,
             edge_suffix = num_edges - prev_out;
             type2_edge_buffer[edge_suffix].dest_vert = dst_vert;
         }
-        //is source vertex id continuous?
         //assmume the max out-degree is less than 2^21
         else if (src_vert != recent_src_vert){
             if ( max_out_edges < (num_edges - prev_out) )
                 max_out_edges = num_edges - prev_out;
             //write a line
             for(i=0;i<edge_suffix;++i)
-                fprintf(edge_file, "%d ", type2_edge_buffer[i].dest_vert);
-            fprintf(edge_file, "%d\n", type2_edge_buffer[i].dest_vert);
+                fprintf(edge_file, "%u ", type2_edge_buffer[i].dest_vert);
+            fprintf(edge_file, "%u\n", type2_edge_buffer[i].dest_vert);
+            //if the vetices is not continuous, it should add mutiple "\n"
+            while(recent_src_vert+1 != src_vert){
+                ++recent_src_vert;
+                fprintf(edge_file, "\n");
+            }
             //update the recent src vert id
             recent_src_vert = src_vert;
             prev_out = num_edges;
@@ -169,8 +179,8 @@ void process_edgelist( const char* input_file_name,
     }//while EOF
     //write the last line
     for(i=0;i<edge_suffix;++i)
-        fprintf(edge_file, "%d ", type2_edge_buffer[i].dest_vert);
-    fprintf(edge_file, "%d\n", type2_edge_buffer[i].dest_vert);
+        fprintf(edge_file, "%u ", type2_edge_buffer[i].dest_vert);
+    fprintf(edge_file, "%u\n", type2_edge_buffer[i].dest_vert);
 
     //finished processing
     fclose( in );
@@ -215,7 +225,6 @@ int read_one_edge( void )
 
     if(( res = fgets( line_buffer, MAX_LINE_LEN, in )) == NULL )
         return CUSTOM_EOF;
-    line_no++;
 
     //skip the comments
     if( line_buffer[0] == '#' ) return 0;

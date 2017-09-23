@@ -8,6 +8,8 @@
  *************************************************************************************************/
 
 #include <iostream>
+#include <sstream>
+#include <algorithm>
 #include <cassert>
 #include <limits.h>
 
@@ -18,107 +20,146 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <unistd.h>
-#include <time.h>
 
 #include "convert.h"
 using namespace convert;
+using namespace std;
+
 #define LINE_FORMAT		"%d\t%d\n"
-#define LINE_FORMAT_VERTEX		"%d %d %d\n"
+#define LINE_FORMAT_VERTEX		"%u\t%u\t%u\n"
+#define LINE_FORMAT_PARTITION "%u\n"
 
-unsigned long long line_num=0;
-FILE * in_vertex;
-unsigned int *vertex_map;
-/*
- * Regarding the vertex indexing:
- * We will assume the FIRST VERTEX ID SHOULD be 0!
- * Although in real cases, this will not necessarily be true,
- * (in many real graphs, the minimal vertex id may not be 0)
- * the assumption we made will ease the organization of the vertex
- * indexing! 
- * Since with this assumption, the out-edge offset of vertices
- * with vertex_ID can be easily accessed by using the suffix:
- * index_map[vertex_ID]
- */
+static FILE * in_vertex;
+static struct vertex_map *vtx_map;
 
-void edgelist_map( const char* input_file_name,
+void edgelist_map( const char* input_graph_name,
         const char* edge_file_name, 
         const char* vertex_file_name,
         const char* out_dir,
-        const char* origin_edge_file)
+        const char* input_file_name)
 {
-    printf( "Start Processing %s.\nWill generate %s in destination folder.\n", 
-            input_file_name, edge_file_name );
+    cout << "Start Processing " << input_graph_name << "\nWill generate the grid files in destination folder.\n";
 
-    srand((unsigned int)time(NULL));
-
-    in = fopen( input_file_name, "r" );
+    in = fopen( input_graph_name, "r" );
     if( in == NULL ){
-        printf( "Cannot open the input graph file!\n" );
+        cout << "Cannot open the input graph file!\n";
         exit(1);
     }
 
     in_vertex = fopen( vertex_file_name, "r" );
     if( in_vertex == NULL ){
-        printf( "Cannot open the vertex file!\n" );
+        cout << "Cannot open the vertex file!\n";
         exit(1);
     }
-    vertex_map = (unsigned int *)map_anon_memory( sizeof(unsigned int) * (max_vertex_id+1), true, true  );
-    init_vertex_map( vertex_map );
-    //for(int i=0;i<max_vertex_id+1;i++)
-    //    printf("vertex_map[%d]:%d\n",i,*(vertex_map+i));
 
-    edge_file = fopen( edge_file_name, "w+" );
-    if( NULL == edge_file ){
-        printf( "Cannot create edge list file:%s\nAborted..\n",
-                edge_file_name );
+    //mmap the partition file, add old_id according the line_num
+    vtx_map = (struct vertex_map *)map_anon_memory( sizeof(struct vertex_map) * (max_vertex_id+1), true, true  );
+    init_vertex_map( vtx_map );
+
+    //sort the vtx_map by the first column(partition_id)
+    std::sort(vtx_map, vtx_map + max_vertex_id + 1, comp_partition_id);
+    int partition = vtx_map[max_vertex_id].partition_id + 1;
+
+    //assign new_id by the order
+    for(unsigned int i=0;i<=max_vertex_id;++i)
+        vtx_map[i].new_id = min_vertex_id + i;
+
+    //sort the vtx_map by the second column(old_id)
+    std::sort(vtx_map, vtx_map + max_vertex_id + 1, comp_old_id);
+    
+    //generate the grid files
+    std::ostringstream file_name;
+    //do not need dual buffer, so mutiply 2
+    int partition_size = each_buf_size * 2 / partition / partition;
+    int ** size = new int*[partition];
+    struct tmp_in_edge *** grid_buf = new struct tmp_in_edge **[partition];
+    FILE *** grid_file = new FILE**[partition];
+    for(int i=0;i<partition;++i){
+        size[i] = new int[partition];
+        grid_buf[i] = new struct tmp_in_edge *[partition];
+        grid_file[i] = new FILE*[partition];
+        for(int j=0;j<partition;++j){
+            size[i][j] = 0;
+            grid_buf[i][j] = buf1 + (i * partition + j) * partition_size;
+            file_name.str("");
+            file_name << out_dir << '/' << input_file_name << '-' << i << j;
+            grid_file[i][j] = fopen(file_name.str().c_str(), "w+");
+        }
+    }
+
+
+    file_name.str("");
+    file_name << out_dir << '/' << input_file_name << "-vertex-map";
+    FILE *vertex_map_file = fopen( file_name.str().c_str(), "w+" );
+    if( NULL == vertex_map_file){
+        cout << "Cannot create vertex_map_file:" << file_name.str().c_str() << "\nAborted..\n";
         exit( -1 );
     }
 
-    memset( (char*)type2_edge_buffer, 0, EDGE_BUFFER_LEN*sizeof(struct type2_edge) );
-
-    //init the global variable
-    line_num = 0;
+    //init
     num_edges = 0;
-
-    //init the file pointer to  the head of the file
     fseek( in , 0 , SEEK_SET );	
 
-    printf( "Generating _b20-edges.txt\n" );       
+    cout << "generating grid...\n";
+    int row, col;
     while ( read_one_edge() != CUSTOM_EOF ){
         //jump the ##
         if (num_edges == 0)
             continue;
 
-        (*(buf1 + current_buf_size)).src_vert = vertex_map[src_vert];
-        (*(buf1 + current_buf_size)).dest_vert = vertex_map[dst_vert];
-        //printf("src:%d; dest:%d\n", vertex_map[src_vert],vertex_map[dst_vert]);
-        current_buf_size++;
-        if (current_buf_size == each_buf_size)
+        row = vtx_map[src_vert-min_vertex_id].partition_id;
+        col = vtx_map[dst_vert-min_vertex_id].partition_id;
+        (grid_buf[row][col] + size[row][col])->src_vert = vtx_map[src_vert-min_vertex_id].new_id;
+        (grid_buf[row][col] + size[row][col])->dest_vert = vtx_map[dst_vert-min_vertex_id].new_id;
+        ++size[row][col];
+        if (size[row][col] == partition_size)
         {
-            //call function to sort and write back
-            std::cout << "copy " << current_buf_size << " edges to radix sort process." << std::endl;
-            wake_up_sort(file_id, current_buf_size, false);
-            current_buf_size = 0;
-            file_id++;
+            //write back
+            for(int i=0;i<partition_size;++i){
+                fprintf(grid_file[row][col], "%u\t%u\n", (grid_buf[row][col] + i)->src_vert, (grid_buf[row][col] + i)->dest_vert);
+                fflush(grid_file[row][col]);
+            }
+            size[row][col] = 0;
         }
     }//while EOF
-    if (current_buf_size)
-    {
-        std::cout << "copy " << current_buf_size << " edges to radix sort process." << std::endl;
-        wake_up_sort(file_id, current_buf_size, true);
-        current_buf_size = 0;
+    for(row=0;row<partition;++row){
+        for(col=0;col<partition;++col){
+            cout << "line[" << row << "][" << col << "]:" << size[row][col] << endl;
+            for(int k=0;k<size[row][col];++k){
+                fprintf(grid_file[row][col], "%u\t%u\n", (grid_buf[row][col] + k)->src_vert, (grid_buf[row][col] + k)->dest_vert);
+                fflush(grid_file[row][col]);
+            }
+        }
     }
+
+    //write back the vertex map file
+    for(unsigned int i=0;i<=max_vertex_id;++i)
+        fprintf(vertex_map_file, LINE_FORMAT_VERTEX, vtx_map[i].partition_id, vtx_map[i].old_id, vtx_map[i].new_id);
+    fclose(vertex_map_file);
 
     //finished processing
     fclose( in );
     //fclose(out_txt);
-    fclose( edge_file );
+    //fclose( edge_file );
+
+    //close grid files
+    for(int i=0;i<partition;++i){
+        for(int j=0;j<partition;++j)
+            fclose(grid_file[i][j]);
+    }
 }
 
-void init_vertex_map( unsigned int * vertex_map )
+bool comp_partition_id(const struct vertex_map &v1, const struct vertex_map &v2){
+    return v1.partition_id < v2.partition_id || (v1.partition_id == v2.partition_id && v1.old_id < v2.old_id);
+}
+
+bool comp_old_id(const struct vertex_map &v1, const struct vertex_map &v2){
+    return v1.old_id < v2.old_id;
+}
+
+void init_vertex_map( struct vertex_map * vtx_map )
 {
-    unsigned int temp1;
-    unsigned int temp2;
+    unsigned long long line_num=0;
     char line_buffer[MAX_LINE_LEN];
     while(true)
     {
@@ -126,7 +167,8 @@ void init_vertex_map( unsigned int * vertex_map )
 
         if(( res = fgets( line_buffer, MAX_LINE_LEN, in_vertex )) == NULL )
             return;
-        sscanf( line_buffer, LINE_FORMAT_VERTEX, &temp1, vertex_map+line_num, &temp2);
+        sscanf( line_buffer, LINE_FORMAT_PARTITION, &vtx_map[line_num].partition_id);
+        vtx_map[line_num].old_id = line_num;
         ++line_num;
     }
 }
